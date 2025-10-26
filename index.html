@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Panini da Arthuro</title>
+  <meta name="description" content="Panini da Arthuro — Panini proaspete, ingrediente locale și gust autentic.">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --accent: #254b23;
+      --muted: #555;
+      --card: #f8f8f8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: #222;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(90deg, #254b23, #3f6e3d);
+      padding: 20px;
+      color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Modificare pentru alinierea la centru a brand-ului */
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Aliniază orizontal la centru */
+      gap: 16px;
+      text-align: center; /* Pentru text centrat sub logo */
+      flex-wrap: wrap; /* Pentru responsive când e pe mobil */
+    }
+
+    .brand img {
+      width: 80px; height: 80px; border-radius: 12px;
+      object-fit: cover; border: 2px solid white;
+      flex-shrink: 0; /* să nu se micșoreze imaginea */
+    }
+
+    /* Pentru text să fie în coloană sub logo când e pe mobil */
+    .brand > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    h1 { margin: 0; font-size: 28px; color: white; }
+    p.lead { margin: 4px 0; color: #dcdcdc; }
+
+    nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center; /* centru meniului */
+      flex-wrap: wrap;
+      gap: 12px;
+      font-weight: 600;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    main { padding: 20px 0; }
+
+    /* --- MENIU --- */
+    .menu-section {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .menu-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+    }
+
+    /* 🖼️ TOATE IMAGINILE EGALE */
+    .menu-card img {
+      width: 100%;
+      height: 200px;       /* înălțime fixă uniformă */
+      object-fit: cover;   /* taie marginile păstrând proporția */
+      display: block;
+      border-bottom: 1px solid #eee;
+    }
+
+    .menu-card-content {
+      padding: 12px 14px;
+    }
+
+    .menu-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: var(--accent);
+    }
+
+    .menu-card p {
+      margin: 4px 0;
+    }
+
+    .menu-card .price {
+      font-weight: bold;
+      color: #000;
+      margin-top: 8px;
+    }
+
+    /* GALERIE */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 8px;
+    }
+    .gallery img {
+      width: 100%; height: 180px;
+      object-fit: cover; border-radius: 8px;
+    }
+    .gallery figcaption { text-align: center; font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+    footer {
+      border-top: 1px solid #eee;
+      padding: 20px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width:600px) {
+      h1 { font-size: 22px; }
+      .brand img { width: 64px; height: 64px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="brand">
+        <img src="images/logo.png" alt="Panini da Arthuro - logo">
+        <div>
+          <h1>Panini da Arthuro</h1>
+          <p class="lead">Panini proaspete, ingrediente italiene și gust autentic.</p>
+          <nav>
+            <a href="#meniu">Meniu</a>
+            <a href="#bauturi">Băuturi</a>
+            <a href="#alte-produse">Alte produse</a>
+            <a href="#locatie">Locație</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ================= MENIU ================= -->
+    <section id="meniu" class="menu-section">
+      <h2>Meniul nostru</h2>
+
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <img src="images/photo1.jpg" alt="Panini Classico">
+          <div class="menu-card-content">
+            <h3>Panini Classico</h3>
+            <p>Prosciutto, mozzarella, rucola, pesto.</p>
+            <p class="price">130 MDL</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo2.jpg" alt="Panini Hîncești">
+          <div class="menu-card-content">
+            <h3>Panini Hîncești</h3>
+            <p>Vinete coapte, ardei, brânză de capră, rucola.</p>
+            <p class="price">90 MDL</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo3.jpg" alt="Panini Special">
+          <div class="menu-card-content">
+            <h3>Panini Special</h3>
+            <p>Carne de vită, ceapă caramelizată, cheddar, sos barbeque.</p>
+            <p class="price">130 MDL</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo4.jpg" alt="Panini Milano">
+          <div class="menu-card-content">
+            <h3>Panini Milano</h3>
+            <p>Salam italian, brânză, roșii uscate, sos italian.</p>
+            <p class="price">130 MDL</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo5.jpg" alt="Panini Caprese">
+          <div class="menu-card-content">
+            <h3>Panini Caprese</h3>
+            <p>Mozzarella, roșii, busuioc, ulei de măsline.</p>
+            <p class="price">90 MDL</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo6.jpg" alt="Panini BBQ">
+          <div class="menu-card-content">
+            <h3>Panini BBQ</h3>
+            <p>Pui marinat, brânză, legume la grătar, sos BBQ.</p>
+            <p class="price">130 MDL</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo7.jpg" alt="Panini Nou">
+          <div class="menu-card-content">
+            <h3>Panini Nou</h3>
+            <p>Ingrediente: ceva gustos, brânză, sos special.</p>
+            <p class="price">130 MDL</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= BĂUTURI ================= -->
+    <section id="bauturi" class="menu-section">
+      <h2>Băuturi</h2>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="menu-card-content"><h3>Espresso</h3><p>Scurt, intens</p><p class="price">8 MDL</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cappuccino</h3><p>Cu lapte spumat</p><p class="price">12 MDL</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Suc proaspăt</h3><p>Portocală / Mere / Morcov</p><p class="price">14 MDL</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Bere</h3><p>Bere la halbă</p><p class="price">30 MDL</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Băuturi răcoritoare</h3><p>Coca-Cola, Fanta, etc</p><p class="price">25 MDL</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Apă plată/minerală</h3><p>0.5L</p><p class="price">15 MDL</p></div></div>
+      </div>
+    </section>
+
+    <!-- ================= ALTE PRODUSE ================= -->
+    <section id="alte-produse" class="menu-section">
+      <h2>Alte produse</h2>
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <img src="images/altprod1.jpg" alt="Produse proaspete">
+          <div class="menu-card-content">
+            <h3>Salată Caesar</h3>
+            <p>Salată verde, piept de pui, dressing Caesar.</p>
+            <p class="price">85 MDL</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/altprod2.jpg" alt="Produse proaspete">
+          <div class="menu-card-content">
+            <h3>Bruschette</h3>
+            <p>Pâine prăjită, roșii, busuioc, ulei de măsline.</p>
+            <p class="price">70 MDL</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/altprod3.jpg" alt="Produse proaspete">
+          <div class="menu-card-content">
+            <h3>Panzerotti</h3>
+            <p>Aluat umplut cu brânză și sos de roșii.</p>
+            <p class="price">95 MDL</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= LOCAȚIE ================= -->
+    <section id="locatie" class="menu-section">
+      <h2>Locație</h2>
+      <p>Ne găsești în centrul orașului Hîncești. Vezi mai jos harta cu locația exactă:</p>
+      <div style="margin:12px 0;">
+        <iframe
+          title="Harta Panini da Arthuro"
+          src="https://www.google.com/maps?q=Panini+da+Arthuro,+Hîncești,+Republica+Moldova&output=embed"
+          width="100%" height="320" style="border:0;border-radius:8px;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <p><strong>Adresă:</strong> Strada principală, Hîncești, Republica Moldova</p>
+      <p><a href="https://www.google.com/maps/search/?api=1&query=Panini+da+Arthuro+Hîncești" target="_blank" rel="noopener">Deschide în Google Maps</a></p>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="menu-section">
+      <h2>Contact și program</h2>
+      <p><strong>Adresă:</strong> Hîncești, Republica Moldova</p>
+      <p><strong>Telefon:</strong> +373 600 00 000</p>
+      <p><strong>Program:</strong> Luni – Duminică, 10:00 – 21:00</p>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div>© <strong>Panini da Arthuro</strong> — Toate drepturile rezervate</div>
+      <div>
+        <a href="#meniu">Meniu</a> •
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
