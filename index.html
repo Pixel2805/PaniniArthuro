@@ -37,23 +37,21 @@
       padding: 20px;
     }
 
-    /* Modificare pentru alinierea la centru a brand-ului */
     .brand {
       display: flex;
       align-items: center;
-      justify-content: center; /* Aliniază orizontal la centru */
+      justify-content: center;
       gap: 16px;
-      text-align: center; /* Pentru text centrat sub logo */
-      flex-wrap: wrap; /* Pentru responsive când e pe mobil */
+      text-align: center;
+      flex-wrap: wrap;
     }
 
     .brand img {
       width: 80px; height: 80px; border-radius: 12px;
       object-fit: cover; border: 2px solid white;
-      flex-shrink: 0; /* să nu se micșoreze imaginea */
+      flex-shrink: 0;
     }
 
-    /* Pentru text să fie în coloană sub logo când e pe mobil */
     .brand > div {
       display: flex;
       flex-direction: column;
@@ -66,7 +64,7 @@
     nav {
       margin-top: 12px;
       display: flex;
-      justify-content: center; /* centru meniului */
+      justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
       font-weight: 600;
@@ -79,7 +77,6 @@
 
     main { padding: 20px 0; }
 
-    /* --- MENIU --- */
     .menu-section {
       background: var(--card);
       border-radius: 12px;
@@ -106,11 +103,10 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.12);
     }
 
-    /* 🖼️ TOATE IMAGINILE EGALE */
     .menu-card img {
       width: 100%;
-      height: 200px;       /* înălțime fixă uniformă */
-      object-fit: cover;   /* taie marginile păstrând proporția */
+      height: 200px;
+      object-fit: cover;
       display: block;
       border-bottom: 1px solid #eee;
     }
@@ -135,7 +131,6 @@
       margin-top: 8px;
     }
 
-    /* GALERIE */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -175,6 +170,7 @@
             <a href="#bauturi">Băuturi</a>
             <a href="#alte-produse">Alte produse</a>
             <a href="#locatie">Locație</a>
+            <a href="#delivery">Delivery</a>
             <a href="#contact">Contact</a>
           </nav>
         </div>
@@ -187,7 +183,6 @@
     <!-- ================= MENIU ================= -->
     <section id="meniu" class="menu-section">
       <h2>Meniul nostru</h2>
-
       <div class="menu-grid">
 
         <div class="menu-card">
@@ -252,7 +247,6 @@
             <p class="price">130 MDL</p>
           </div>
         </div>
-        
 
       </div>
     </section>
@@ -319,10 +313,24 @@
       <p><a href="https://www.google.com/maps/search/?api=1&query=Panini+da+Arthuro+Hîncești" target="_blank" rel="noopener">Deschide în Google Maps</a></p>
     </section>
 
+    <!-- ================= DELIVERY ================= -->
+    <section id="delivery" class="menu-section">
+      <h2>Delivery</h2>
+      <p>Comandă panini-urile tale preferate direct la tine acasă!</p>
+      <ul>
+        <li><strong>Zonă de livrare:</strong> Hîncești</li>
+        <li><strong>Program livrări:</strong> Luni – Duminică, 10:00 – 20:30</li>
+        <li><strong>Comandă minimă:</strong> 100 MDL</li>
+        <li><strong>Taxă de livrare:</strong> 20 MDL (gratuit pentru comenzi peste 300 MDL)</li>
+      </ul>
+      <p><strong>Telefon pentru comenzi:</strong> +373 600 00 000</p>
+      <p><strong>Livrăm prin:</strong> Glovo și livrare proprie.</p>
+    </section>
+
     <!-- ================= CONTACT ================= -->
     <section id="contact" class="menu-section">
       <h2>Contact și program</h2>
-      <p><strong>Adresă:</strong> Hîncești, Republica Moldova</p>
+      <p><strong>Adresă:</strong> Strada Chișinăului, Hîncești, Republica Moldova</p>
       <p><strong>Telefon:</strong> +373 600 00 000</p>
       <p><strong>Program:</strong> Luni – Duminică, 10:00 – 21:00</p>
     </section>
