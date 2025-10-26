@@ -37,6 +37,7 @@
       padding: 20px;
     }
 
+    /* Modificare pentru alinierea la centru a brand-ului */
     .brand {
       display: flex;
       align-items: center;
@@ -77,6 +78,7 @@
 
     main { padding: 20px 0; }
 
+    /* --- MENIU --- */
     .menu-section {
       background: var(--card);
       border-radius: 12px;
@@ -84,10 +86,11 @@
       margin-bottom: 24px;
     }
 
+    /* 🔧 MODIFICARE: 3 CARDURI PE RÂND AUTOMAT */
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
     }
 
     .menu-card {
@@ -131,16 +134,20 @@
       margin-top: 8px;
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 8px;
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s;
     }
-    .gallery img {
-      width: 100%; height: 180px;
-      object-fit: cover; border-radius: 8px;
+
+    .btn:hover {
+      background: #3f6e3d;
     }
-    .gallery figcaption { text-align: center; font-size: 14px; color: var(--muted); margin-top: 6px; }
 
     footer {
       border-top: 1px solid #eee;
@@ -172,6 +179,7 @@
             <a href="#locatie">Locație</a>
             <a href="#delivery">Delivery</a>
             <a href="#contact">Contact</a>
+            <a href="#recenzii">Recenzii</a>
           </nav>
         </div>
       </div>
@@ -183,8 +191,8 @@
     <!-- ================= MENIU ================= -->
     <section id="meniu" class="menu-section">
       <h2>Meniul nostru</h2>
-      <div class="menu-grid">
 
+      <div class="menu-grid">
         <div class="menu-card">
           <img src="images/photo1.jpg" alt="Panini Classico">
           <div class="menu-card-content">
@@ -248,6 +256,25 @@
           </div>
         </div>
 
+          <div class="menu-card">
+          <img src="images/photo6.jpg" alt="Panini BBQ">
+          <div class="menu-card-content">
+            <h3>Panini BBQ</h3>
+            <p>Pui marinat, brânză, legume la grătar, sos BBQ.</p>
+            <p class="price">130 MDL</p>
+          </div>
+        </div>
+
+          <div class="menu-card">
+          <img src="images/photo6.jpg" alt="Panini BBQ">
+          <div class="menu-card-content">
+            <h3>Panini BBQ</h3>
+            <p>Pui marinat, brânză, legume la grătar, sos BBQ.</p>
+            <p class="price">130 MDL</p>
+          </div>
+        </div>
+
+        
       </div>
     </section>
 
@@ -270,7 +297,7 @@
       <div class="menu-grid">
 
         <div class="menu-card">
-          <img src="images/altprod1.jpg" alt="Produse proaspete">
+          <img src="images/altprod1.jpg" alt="Salată Caesar">
           <div class="menu-card-content">
             <h3>Salată Caesar</h3>
             <p>Salată verde, piept de pui, dressing Caesar.</p>
@@ -279,7 +306,7 @@
         </div>
 
         <div class="menu-card">
-          <img src="images/altprod2.jpg" alt="Produse proaspete">
+          <img src="images/altprod2.jpg" alt="Bruschette">
           <div class="menu-card-content">
             <h3>Bruschette</h3>
             <p>Pâine prăjită, roșii, busuioc, ulei de măsline.</p>
@@ -288,7 +315,7 @@
         </div>
 
         <div class="menu-card">
-          <img src="images/altprod3.jpg" alt="Produse proaspete">
+          <img src="images/altprod3.jpg" alt="Panzerotti">
           <div class="menu-card-content">
             <h3>Panzerotti</h3>
             <p>Aluat umplut cu brânză și sos de roșii.</p>
@@ -318,21 +345,29 @@
       <h2>Delivery</h2>
       <p>Comandă panini-urile tale preferate direct la tine acasă!</p>
       <ul>
-        <li><strong>Zonă de livrare:</strong> Hîncești</li>
+        <li><strong>Zonă de livrare:</strong> Hîncești și împrejurimi</li>
         <li><strong>Program livrări:</strong> Luni – Duminică, 10:00 – 20:30</li>
         <li><strong>Comandă minimă:</strong> 100 MDL</li>
-        <li><strong>Taxă de livrare:</strong> 20 MDL (gratuit pentru comenzi peste 300 MDL)</li>
+        <li><strong>Taxă de livrare:</strong> 20 MDL (gratuit peste 300 MDL)</li>
       </ul>
       <p><strong>Telefon pentru comenzi:</strong> +373 600 00 000</p>
-      <p><strong>Livrăm prin:</strong> Glovo și livrare proprie.</p>
+      <p><strong>Livrăm prin:</strong> Glovo, Bolt Food și livrare proprie.</p>
     </section>
 
     <!-- ================= CONTACT ================= -->
     <section id="contact" class="menu-section">
       <h2>Contact și program</h2>
-      <p><strong>Adresă:</strong> Strada Chișinăului, Hîncești, Republica Moldova</p>
+      <p><strong>Adresă:</strong> Hîncești, Republica Moldova</p>
       <p><strong>Telefon:</strong> +373 600 00 000</p>
       <p><strong>Program:</strong> Luni – Duminică, 10:00 – 21:00</p>
+    </section>
+
+    <!-- ================= RECENZII ================= -->
+    <section id="recenzii" class="menu-section">
+      <h2>Trimite o recenzie</h2>
+      <p>Dacă ai sugestii pentru îmbunătățirea localului sau a meniului nostru, ne poți scrie direct:</p>
+      <p><strong>Email:</strong> feedback.paniniarthuro@gmail.com</p>
+      <a href="mailto:feedback.paniniarthuro@gmail.com?subject=Recenzie%20Panini%20da%20Arthuro&body=Bună%20ziua%2C%20aș%20dori%20să%20las%20o%20recenzie%3A" class="btn">✉️ Trimite recenzia ta</a>
     </section>
 
   </main>
