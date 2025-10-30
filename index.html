@@ -20,10 +20,11 @@
       font-family: Arial, Helvetica, sans-serif;
       margin: 0;
       background: var(--bg);
-      color: #222;
+      color: black;
       line-height: 1.5;
       scroll-behavior: smooth;
-      text-align: center; /* text centrat */
+      text-align: center;
+      font-weight: normal;
     }
 
     header {
@@ -38,7 +39,6 @@
       padding: 20px;
     }
 
-    /* --- Brand centrat și logo mărit --- */
     .brand {
       display: flex;
       align-items: center;
@@ -49,10 +49,10 @@
     }
 
     .brand img {
-      width: 100px; 
-      height: 100px; 
+      width: 175px;
+      height: 150px;
       border-radius: 12px;
-      object-fit: cover; 
+      object-fit: cover;
       border: 2px solid white;
       flex-shrink: 0;
     }
@@ -66,7 +66,6 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
-      font-weight: 600;
     }
 
     nav a {
@@ -78,16 +77,11 @@
 
     main { padding: 20px 0; }
 
-    /* --- Meniu --- */
     .menu-section {
       background: var(--card);
       border-radius: 12px;
       padding: 20px;
       margin-bottom: 24px;
-    }
-
-    .menu-section h2 {
-      color: var(--accent);
     }
 
     .menu-grid {
@@ -117,21 +111,9 @@
       border-bottom: 1px solid #eee;
     }
 
-    .menu-card-content {
-      padding: 12px 14px;
-    }
+    .menu-card-content { padding: 12px 14px; }
 
-    .menu-card h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      color: var(--accent);
-    }
-
-    .menu-card .price {
-      font-weight: bold;
-      color: #000;
-      margin-top: 8px;
-    }
+    .price { color: #000; }
 
     .btn {
       display: inline-block;
@@ -140,13 +122,10 @@
       padding: 10px 20px;
       border-radius: 6px;
       text-decoration: none;
-      font-weight: bold;
       transition: background 0.2s;
     }
 
-    .btn:hover {
-      background: #3f6e3d;
-    }
+    .btn:hover { background: #3f6e3d; }
 
     footer {
       border-top: 1px solid #eee;
@@ -155,7 +134,6 @@
       font-size: 14px;
     }
 
-    /* --- Buton SUS --- */
     #scrollTopBtn {
       position: fixed;
       bottom: 25px;
@@ -169,22 +147,34 @@
       font-size: 22px;
       cursor: pointer;
       display: none;
-      transition: opacity 0.3s ease;
     }
+  
+/* Titluri mari și denumiri panini & băuturi în verde */
+.menu-section h2,
+h2 {
+  color: #253f1a !important;
+  font-weight: bold;
+}
 
-    #scrollTopBtn:hover {
-      background-color: #3f6e3d;
-    }
+.menu-card h3,
+h3 {
+  color: #253f1a !important;
+  font-weight: bold;
+}
 
-    @media (max-width:600px) {
-      h1 { font-size: 24px; }
-      .brand img { width: 80px; height: 80px; }
-    }
-  </style>
+/* Prețurile rămân negre */
+.price {
+  color: black !important;
+  font-weight: bold;
+}
+
+</style>
 </head>
 
 <body>
-  <header>
+  
+
+ <header>
     <div class="container">
       <div class="brand">
         <img src="images/logo.png" alt="Panini da Arthuro - logo">
@@ -211,7 +201,6 @@
     <!-- ================= MENIU ================= -->
     <section id="meniu" class="menu-section">
       <h2>Meniul nostru</h2>
-      <h3>Panini 300 gr.</h3>
 
       <div class="menu-grid">
         <div class="menu-card">
@@ -315,16 +304,16 @@
     <section id="bauturi" class="menu-section">
       <h2>Băuturi fierbinți</h2>
       <div class="menu-grid">
-        <div class="menu-card"><div class="menu-card-content"><h3>Esspresso 30 ml</h3><p>Decaf. - 27 Lei</p><p class="price">27 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cappuccino 180 ml</h3><p>decaf. - 35 Lei</p><p class="price">35 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Latte 300 ml</h3><p>decaf. - 37 Lei</p><p class="price">37 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Esspresso Machiato 40 ml</h3><p>decaf. - 33 Lei</p><p class="price">33 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Esspresso Doppio 50 ml</h3><p>decaf. - 40 Lei</p><p class="price">40 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Esspresso 30 ml</h3><p>Decaf. - 29 Lei</p><p class="price">27 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cappuccino 180 ml</h3><p>decaf. - 37 Lei</p><p class="price">35 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Latte 300 ml</h3><p>decaf. - 39 Lei</p><p class="price">37 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Esspresso Machiato 40 ml</h3><p>decaf. - 35 Lei</p><p class="price">33 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Esspresso Doppio 50 ml</h3><p>decaf. - 42 Lei</p><p class="price">40 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Americano</h3><p>decaf. - 29 Lei</p><p class="price">27 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Ristretto</h3><p>decaf. - 29 Lei</p><p class="price">27 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Flat White 180 ml</h3><p class="price">50 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Ceai infuzie 300 ml</h3><p>(Verde, Ierburi, Negru, Fructe)</p><p class="price">29 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Ceai fructe naturale 1 l</h3><p class="price">60 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Ceai fructe naturale 1 l</h3><p>(Cătina, Mix fructe de pădure)</p><p class="price">60 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Ceai fructe naturale 330 ml</h3><p>(Cătina, Mix fructe de pădure)</p><p class="price">28 Lei</p></div></div>
       </div>
         <h2>Soft Drinks</h2>
@@ -660,7 +649,7 @@
           src="https://www.google.com/maps?q=Panini+da+Arthuro,+Hîncești,+Republica+Moldova&output=embed"
           width="100%" height="320" style="border:0;border-radius:8px;" allowfullscreen="" loading="lazy"></iframe>
       </div>
-      <p><strong>Adresă:</strong> Strada Chișinăului, Hîncești, Republica Moldova</p>
+      <p><strong>Adresă:</strong> Strada Chișinăului 10, Hîncești, Republica Moldova</p>
       <p><a href="https://www.google.com/maps/search/?api=1&query=Panini+da+Arthuro+Hîncești" target="_blank" rel="noopener">Deschide în Google Maps</a></p>
     </section>
 
@@ -697,15 +686,6 @@
 
 </main>
 
-  <footer class="container">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-      <div>© <strong>Panini da Arthuro</strong> — Designed by Antonin.</div>
-      <div>
-        <p>Designer site - balanantonin8@gmail.com</p>
-      </div>
-    </div>
-  </footer>
-
   <!-- Buton SUS -->
   <button id="scrollTopBtn" title="Înapoi sus">↑</button>
 
@@ -732,5 +712,16 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
+
+  <!-- FOOTER -->
+  <footer style="background:#254b23;color:white;padding:15px;text-align:center;margin-top:20px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div>© <strong>Panini da Arthuro</strong> — Designed by Antonin.</div>
+      <div>
+        <p>Designer site - balanantonin8@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
