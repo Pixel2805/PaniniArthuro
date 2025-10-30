@@ -23,6 +23,7 @@
       color: #222;
       line-height: 1.5;
       scroll-behavior: smooth;
+      text-align: center; /* text centrat */
     }
 
     header {
@@ -37,7 +38,7 @@
       padding: 20px;
     }
 
-    /* Modificare pentru alinierea la centru a brand-ului */
+    /* --- Brand centrat și logo mărit --- */
     .brand {
       display: flex;
       align-items: center;
@@ -48,18 +49,15 @@
     }
 
     .brand img {
-      width: 80px; height: 80px; border-radius: 12px;
-      object-fit: cover; border: 2px solid white;
+      width: 100px; 
+      height: 100px; 
+      border-radius: 12px;
+      object-fit: cover; 
+      border: 2px solid white;
       flex-shrink: 0;
     }
 
-    .brand > div {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    h1 { margin: 0; font-size: 28px; color: white; }
+    h1 { margin: 0; font-size: 30px; color: white; }
     p.lead { margin: 4px 0; color: #dcdcdc; }
 
     nav {
@@ -70,15 +68,17 @@
       gap: 12px;
       font-weight: 600;
     }
+
     nav a {
       color: #fff;
       text-decoration: none;
     }
+
     nav a:hover { text-decoration: underline; }
 
     main { padding: 20px 0; }
 
-    /* --- MENIU --- */
+    /* --- Meniu --- */
     .menu-section {
       background: var(--card);
       border-radius: 12px;
@@ -86,7 +86,10 @@
       margin-bottom: 24px;
     }
 
-    /* 🔧 MODIFICARE: 3 CARDURI PE RÂND AUTOMAT */
+    .menu-section h2 {
+      color: var(--accent);
+    }
+
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -124,10 +127,6 @@
       color: var(--accent);
     }
 
-    .menu-card p {
-      margin: 4px 0;
-    }
-
     .menu-card .price {
       font-weight: bold;
       color: #000;
@@ -156,15 +155,35 @@
       font-size: 14px;
     }
 
+    /* --- Buton SUS --- */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 22px;
+      cursor: pointer;
+      display: none;
+      transition: opacity 0.3s ease;
+    }
+
+    #scrollTopBtn:hover {
+      background-color: #3f6e3d;
+    }
+
     @media (max-width:600px) {
-      h1 { font-size: 22px; }
-      .brand img { width: 64px; height: 64px; }
+      h1 { font-size: 24px; }
+      .brand img { width: 80px; height: 80px; }
     }
   </style>
 </head>
 
 <body>
-
   <header>
     <div class="container">
       <div class="brand">
@@ -187,7 +206,8 @@
   </header>
 
   <main class="container">
-
+    
+    
     <!-- ================= MENIU ================= -->
     <section id="meniu" class="menu-section">
       <h2>Meniul nostru</h2>
@@ -502,7 +522,7 @@
         </div>
 
         <div class="menu-card">
-          <img src="images/salamtoscano.jpg" alt="Fileu Curcan">
+          <img src="images/fileucurcan.jpg" alt="Fileu Curcan">
           <div class="menu-card-content">
             <h3>Fileu Curcan</h3>
             <p>Preț per 100 gr</p>
@@ -649,10 +669,10 @@
       <h2>Livrare</h2>
       <p>Comandă panini-urile tale preferate direct la tine acasă!</p>
       <ul>
-        <li><strong>Zonă de livrare:</strong> Hîncești</li>
-        <li><strong>Program livrări:</strong> Luni, 08:00 – 15:30</li>
-        <li>Marți – Duminică, 08:00 – 21:00</li>
-        <li><strong>Taxă de livrare:</strong> 30 Lei (gratuit peste 300 Lei)</li>
+        <p><strong>Zonă de livrare:</strong> Hîncești</p>
+        <p><strong>Program livrări:</strong> Luni, 08:00 – 15:30</p>
+        <p>Marți – Duminică, 08:00 – 21:00</p>
+        <p><strong>Taxă de livrare:</strong> 30 Lei (gratuit peste 300 Lei)</p>
       </ul>
       <p><strong>Telefon pentru comenzi:</strong> +373 78242450</p>
     </section>
@@ -674,7 +694,8 @@
       <a href="mailto:darhuro@gmail.com?subject=Recenzie%20Panini%20da%20Arthuro&body=Bună%20ziua%2C%20aș%20dori%20să%20las%20o%20recenzie%3A" class="btn">✉️ Trimite feedback-ul tău</a>
     </section>
 
-  </main>
+
+</main>
 
   <footer class="container">
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
@@ -685,5 +706,31 @@
     </div>
   </footer>
 
+  <!-- Buton SUS -->
+  <button id="scrollTopBtn" title="Înapoi sus">↑</button>
+
+  <script>
+    // Scroll automat sus la încărcare
+    window.onload = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    // Buton scroll top vizibil când se derulează
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = () => {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollBtn.style.display = "block";
+        scrollBtn.style.opacity = "1";
+      } else {
+        scrollBtn.style.opacity = "0";
+        scrollBtn.style.display = "none";
+      }
+    };
+
+    // Scroll la începutul paginii
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
