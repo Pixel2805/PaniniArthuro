@@ -2,242 +2,209 @@
 <html lang="ro">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Panini da Arthuro</title>
   <meta name="description" content="Panini da Arthuro — Panini proaspete, ingrediente locale și gust autentic.">
+
   <style>
-    :root { --bg:#ffffff; --accent:#254b23; --muted:#555; --card:#f8f8f8; }
-    * { box-sizing: border-box; margin:0; padding:0; }
-    body { font-family: Arial, sans-serif; background:var(--bg); color:black; line-height:1.5; scroll-behavior:smooth; text-align:center; }
-
-    header { background:linear-gradient(90deg,#254b23,#3f6e3d); padding:14px 0; color:white; position:sticky; top:0; z-index:1000; }
-
-    /* ───────── BURGER MENU ───────── */
-    .nav-wrapper { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:auto; padding:0 16px; }
-
-    .brand { display:flex; align-items:center; gap:10px; }
-    .brand img { width:70px; height:60px; border-radius:10px; object-fit:cover; border:2px solid white; }
-    h1 { font-size:22px; }
-    p.lead { font-size:14px; color:#e8e8e8; }
-
-    nav { display:flex; gap:20px; font-size:16px; }
-    nav a { color:white; text-decoration:none; }
-    nav a:hover { opacity:0.8; }
-
-    /* B U R G E R   B U T T O N */
-    #burger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
-    #burger span { width:26px; height:3px; background:white; border-radius:4px; transition:0.3s; }
-
-    /* meniul ascuns pe mobil */
-    @media (max-width: 860px) {
-      nav { position:fixed; top:0; right:-100%; height:100vh; width:240px; background:#254b23ee; flex-direction:column; align-items:center; justify-content:center; transition:0.4s; backdrop-filter:blur(8px); }
-      nav a { font-size:20px; padding:12px 0; display:block; }
-      #burger { display:flex; }
-      nav.active { right:0; }
-      /* animație burger → X */
-      #burger.active .l1 { transform: rotate(45deg) translate(5px,5px); }
-      #burger.active .l2 { opacity:0; }
-      #burger.active .l3 { transform: rotate(-45deg) translate(6px,-6px); }
+    :root {
+      --bg: #ffffff;
+      --accent: #254b23;
+      --muted: #555;
+      --card: #f8f8f8;
     }
 
-    /* ───────── GRID MENIU ───────── */
-    .container { max-width:1100px; margin:auto; padding:18px; }
-    .menu-section { background:var(--card); border-radius:14px; padding:25px; margin-bottom:28px; }
-    h2 { color:#253f1a; margin-bottom:18px; font-size:26px; }
-    .menu-grid { display:grid; gap:18px; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); }
+    * { box-sizing: border-box; }
 
-    .menu-card { background:white; border-radius:12px; overflow:hidden; box-shadow:0 3px 8px rgba(0,0,0,0.08); transition:0.2s; }
-    .menu-card:hover { transform:translateY(-3px); }
-    .menu-card img { width:100%; height:200px; object-fit:cover; }
-    .menu-card-content { padding:14px; }
-    .price { font-weight:bold; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: black;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      text-align: center;
+      font-weight: normal;
+    }
 
-    /* responsive font fix */
-    @media (max-width:520px) { h1{font-size:18px;} h2{font-size:22px;} }
+    header {
+      background: linear-gradient(90deg, #254b23, #3f6e3d);
+      padding: 20px;
+      color: white;
+    }
 
-    footer { background:#254b23; color:white; padding:15px; font-size:14px; }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    .brand img {
+      width: 175px;
+      height: 150px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 2px solid white;
+      flex-shrink: 0;
+    }
+
+    h1 { margin: 0; font-size: 30px; color: white; }
+    p.lead { margin: 4px 0; color: #dcdcdc; }
+
+    nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    main { padding: 20px 0; }
+
+    .menu-section {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid #eee;
+    }
+
+    .menu-card-content { padding: 12px 14px; }
+
+    .price { color: #000; }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: #3f6e3d; }
+
+    footer {
+      border-top: 1px solid #eee;
+      padding: 20px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 22px;
+      cursor: pointer;
+      display: none;
+    }
   
-
-/* ✅ OPTIMIZARE MOBILĂ — Fără să modificăm layoutul existent */
-@media (max-width: 900px) {
-  nav {
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-  }
-  nav a {
-    padding:8px 10px;
-    font-size:14px;
-  }
+/* Titluri mari și denumiri panini & băuturi în verde */
+.menu-section h2,
+h2 {
+  color: #253f1a !important;
+  font-weight: bold;
 }
 
-@media (max-width: 600px) {
-  .brand {
-    flex-direction: column;
-    gap: 8px;
-  }
-  .brand img {
-    width:130px;
-    height:110px;
-  }
-  h1 {
-    font-size: 24px;
-  }
-  nav {
-    flex-direction: column;
-    gap: 6px;
-  }
-  nav a {
-    display:block;
-    width:100%;
-    padding:10px;
-    font-size:16px;
-    background:#254b23;
-    border-radius:6px;
-  }
+.menu-card h3,
+h3 {
+  color: #253f1a !important;
+  font-weight: bold;
 }
 
-@media (max-width: 460px) {
-  .menu-grid {
-    grid-template-columns: 1fr !important;
-  }
-  .menu-card img {
-    height:160px;
-  }
-  h2 { font-size:22px; }
+/* Prețurile rămân negre */
+.price {
+  color: black !important;
+  font-weight: bold;
 }
-
-
-
-/* 🔼 BUTON SCROLL TOP — vizibil permanent (ca înainte) */
-#scrollTopBtn {
-  position: fixed;
-  bottom: 22px;
-  right: 22px;
-  background: #254b23;
-  color: white;
-  border: none;
-  padding: 12px 16px;
-  border-radius: 50%;
-  font-size: 22px;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 9999;
-}
-#scrollTopBtn:hover {
-  transform: scale(1.15);
-}
-
-
-
-/* ✅ SOCIAL BUTTONS (Instagram, Facebook, TikTok, Feedback) — vizibile permanent în colț */
-.social-buttons {
-  position: fixed;
-  bottom: 90px;
-  left: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 9999;
-}
-.social-buttons a {
-  width: 48px;
-  height: 48px;
-  background: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 22px;
-  border: 2px solid #254b23;
-  transition: 0.25s ease-in-out;
-}
-.social-buttons a:hover {
-  transform: scale(1.15);
-  background: #254b23;
-  color: white;
-}
-
-/* asigurăm afișarea pe mobil */
-@media (max-width: 600px) {
-  .social-buttons a {
-    width: 42px;
-    height: 42px;
-    font-size: 20px;
-  }
-}
-
-
-
-/* ✅ OPTIMIZARE MOBILĂ COMPLETĂ (fără modificarea designului existent) */
-@media (max-width: 900px) {
-  nav {
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-  }
-  nav a {
-    font-size:14px;
-  }
-}
-
-@media (max-width: 600px) {
-  .brand { flex-direction: column; gap: 8px; }
-  .brand img { width:130px; height:110px; }
-  h1 { font-size: 24px; }
-  nav { flex-direction: column; gap: 6px; }
-  nav a { width:100%; padding: 10px; border-radius:6px; background:#254b23; }
-  .menu-grid { grid-template-columns: 1fr !important; }
-  .menu-card img { height:160px; }
-}
-
-@media (max-width: 460px) {
-  h2 { font-size:22px; }
-  .social-buttons a { width:42px; height:42px; font-size:18px; }
-}
-
-/* 🔼 scroll top fixat pentru mobil */
-#scrollTopBtn { opacity:1 !important; display:block !important; }
 
 </style>
 </head>
-<body>
 
-<header>
-  <div class="nav-wrapper">
-    <div class="brand">
-      <img src="images/logo.png" alt="logo">
-      <div>
-        <h1>Panini da Arthuro</h1>
-        <p class="lead">Panini proaspete & ingrediente italiene.</p>
+<body>
+  
+
+ <header>
+    <div class="container">
+      <div class="brand">
+        <img src="images/logo.png" alt="Panini da Arthuro - logo">
+        <div>
+          <h1>Panini da Arthuro</h1>
+          <p class="lead">Panini proaspete, ingrediente italiene și gust autentic.</p>
+          <nav>
+            <a href="#meniu">Meniu</a>
+            <a href="#deserturi">Desert</a>
+            <a href="#bauturi">Băuturi</a>
+            <a href="#produse-italiene">Produse-Italiene</a>
+            <a href="#alte-produse">Alte-Produse-Italiene</a>
+            <a href="#locatie">Locație</a>
+            <a href="#livrare">Livrare</a>
+            <a href="#contact">Contact</a>
+            <a href="#recenzii">Feedback</a>
+          </nav>
+        </div>
       </div>
     </div>
+  </header>
 
-    <div id="burger">
-      <span class="l1"></span>
-      <span class="l2"></span>
-      <span class="l3"></span>
-    </div>
+  <main class="container">
+    
+    
+    <!-- ================= MENIU ================= -->
+    <section id="meniu" class="menu-section">
+      <h2>Meniul nostru</h2>
 
-    <nav>
-      <a href="#meniu">Meniu</a>
-      <a href="#deserturi">Desert</a>
-      <a href="#bauturi">Băuturi</a>
-      <a href="#produse-italiene">Produse Italiene</a>
-      <a href="#locatie">Locație</a>
-      <a href="#contact">Contact</a>
-      <a href="#recenzii">Feedback</a>
-    </nav>
-  </div>
-</header>
-
-<!-- CONTINUT MENIU (copiezi aici ce ai deja) -->
-<main class="container">
-  <section id="meniu" class="menu-section">
-     <h2>Meniul nostru</h2>
-    <div class="menu-grid">
+      <div class="menu-grid">
         <div class="menu-card">
           <img src="images/paniniparma.jpg" alt="Panini Parma">
           <div class="menu-card-content">
@@ -955,7 +922,15 @@
     });
   </script>
 
-  
+  <!-- FOOTER -->
+  <footer style="background:#254b23;color:white;padding:15px;text-align:center;margin-top:20px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div>© <strong>Panini da Arthuro</strong> — Designed by Antonin.</div>
+      <div>
+        <p>Designer site - balanantonin8@gmail.com</p>
+      </div>
+    </div>
+  </footer>
 
 <script>
   // Smooth scroll animat pentru link-urile din meniu
@@ -969,57 +944,6 @@
     });
   });
 </script>
-
-  </section>
-</main>
-
-<!-- FOOTER -->
-  <footer style="background:#254b23;color:white;padding:15px;text-align:center;margin-top:20px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-      <div>© <strong>Panini da Arthuro</strong> — Designed by Antonin.</div>
-      <div>
-        <p>Designer site - balanantonin8@gmail.com</p>
-      </div>
-    </div>
-  </footer>
-
-<script>
-  const burger = document.querySelector('#burger');
-  const nav = document.querySelector('nav');
-
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('active');
-    nav.classList.toggle('active');
-  });
-
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('active');
-      burger.classList.remove('active');
-    });
-  });
-</script>
-
-<script>
-  const burger = document.querySelector('#burger');
-  const nav = document.querySelector('nav');
-
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('active');
-    nav.classList.toggle('active');
-  });
-
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('active');
-      burger.classList.remove('active');
-    });
-  });
-</script>
-  </section>
-</main>
-
-
 
 
 </body>
