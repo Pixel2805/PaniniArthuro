@@ -113,7 +113,11 @@
 
     .menu-card-content { padding: 12px 14px; }
 
-    .price { color: #000; }
+    .price { color: #000;
+      font-weight: 800;
+      margin-top: 8px;
+      font-size: 1.2rem;
+    }
 
     .btn {
       display: inline-block;
@@ -237,6 +241,8 @@ h3 {
         <div>
           <h1>Panini da Arthuro</h1>
           <p class="lead">Panini proaspete, ingrediente italiene și gust autentic.</p>
+          <div id="status-program" style="margin-top: 10px; font-weight: bold; font-size: 14px;">
+  </div>
           <nav>
            | <a href="#paste">Paste</a>|
             <a href="#meniu">Panini</a>|
@@ -1018,8 +1024,6 @@ h3 {
       <p>Comandă panini-urile tale preferate direct la tine acasă!</p>
       <ul>
         <p><strong>Zonă de livrare:</strong> Hîncești</p>
-        <p><strong>Program livrări:</strong> Luni, 08:00 – 15:30</p>
-        <p>Marți – Duminică, 08:00 – 21:00</p>
         <p><strong>Taxă de livrare:</strong> 30 Lei (gratuit peste 300 Lei)</p>
       </ul>
       <p><strong>Telefon pentru comenzi:</strong> +373 78242489</p>
@@ -1109,6 +1113,47 @@ h3 {
     <span class="icon">📸</span> Insta
   </a>
 </div>
+
+
+<script>
+  function actualizeazaStatusProgram() {
+    const acum = new Date();
+    const ziuaSaptamanii = acum.getDay(); // 0 = Duminică, 1 = Luni ... 6 = Sâmbătă
+    const oraCurenta = acum.getHours() + (acum.getMinutes() / 60);
+    
+    const statusElem = document.getElementById('status-program');
+    let esteDeschis = false;
+    let mesaj = "";
+
+    if (ziuaSaptamanii === 1) { // LUNI
+      if (oraCurenta >= 8 && oraCurenta < 15.5) {
+        esteDeschis = true;
+        mesaj = "Deschis acum (Până la 15:30)";
+      } else {
+        mesaj = "Închis acum (Deschidem Marți la 08:00)";
+      }
+    } else { // MARȚI - DUMINICĂ
+      if (oraCurenta >= 8 && oraCurenta < 21) {
+        esteDeschis = true;
+        mesaj = "Deschis acum (Până la 21:00)";
+      } else {
+        mesaj = "Închis acum (Deschidem la 08:00)";
+      }
+    }
+
+    // Stilul vizual
+    if (esteDeschis) {
+      statusElem.innerHTML = `<span style="color: #2ecc71; font-size: 18px;">●</span> <span style="color: white;">${mesaj}</span>`;
+    } else {
+      statusElem.innerHTML = `<span style="color: #e74c3c; font-size: 18px;">●</span> <span style="color: #dcdcdc;">${mesaj}</span>`;
+    }
+  }
+
+  // Rulăm funcția la încărcarea paginii
+  actualizeazaStatusProgram();
+  // Actualizăm la fiecare minut în caz că utilizatorul stă mult pe site
+  setInterval(actualizeazaStatusProgram, 60000);
+</script>
 
 </body>
 </html>
