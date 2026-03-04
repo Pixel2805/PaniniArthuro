@@ -168,6 +168,60 @@ h3 {
   font-weight: bold;
 }
 
+
+/* --- BARA DE ACȚIUNI MOBIL --- */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 70px; /* Spațiu ca bara să nu acopere footer-ul */
+  }
+
+  .mobile-actions {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
+    z-index: 9999;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+    border-top: 3px solid #254b23; /* Verdele tău specific */
+  }
+
+  .action-item {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .action-item span.icon {
+    font-size: 20px;
+  }
+
+  .action-item:not(:last-child) {
+    border-right: 1px solid #eee;
+  }
+  
+  /* Evidențiem butonul de comandă (WhatsApp) */
+  .action-item.whatsapp {
+    color: #25D366;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-actions {
+    display: none;
+  }
+}
+
 </style>
 </head>
 
@@ -1037,6 +1091,27 @@ h3 {
   });
 </script>
 
+  <div class="mobile-actions">
+  <a href="tel:+37378242489" class="action-item">
+    <span class="icon">📞</span>
+    SUNĂ
+  </a>
+  
+  <a href="https://wa.me/37378242489" target="_blank" class="action-item whatsapp">
+    <span class="icon">💬</span>
+    WHATSAPP
+  </a>
+
+  <a href="#locatie" class="action-item">
+    <span class="icon">📍</span>
+    LOCAȚIE
+  </a>
+
+  <a href="https://www.instagram.com/paninidaarthuro/" target="_blank" class="action-item">
+    <span class="icon">📸</span>
+    INSTA
+  </a>
+</div>
 
 </body>
 </html>
