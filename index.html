@@ -169,10 +169,10 @@ h3 {
 }
 
 
-/* --- BARA DE ACȚIUNI MOBIL --- */
+/* --- BARA DE ACȚIUNI MOBIL COMPACTĂ --- */
 @media (max-width: 768px) {
   body {
-    padding-bottom: 70px; /* Spațiu ca bara să nu acopere footer-ul */
+    padding-bottom: 55px; /* Spațiu mai mic jos */
   }
 
   .mobile-actions {
@@ -181,45 +181,44 @@ h3 {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #ffffff;
-    box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
+    background: rgba(255, 255, 255, 0.95); /* Ușor transparent pentru aspect modern */
+    backdrop-filter: blur(5px);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
     z-index: 9999;
-    justify-content: space-around;
+    height: 48px; /* Înălțime redusă */
     align-items: center;
-    padding: 8px 0;
-    border-top: 3px solid #254b23; /* Verdele tău specific */
+    border-top: 1px solid #eee;
   }
 
   .action-item {
     flex: 1;
     text-align: center;
     text-decoration: none;
-    color: #333;
-    font-size: 11px;
-    font-weight: bold;
+    color: #444;
+    font-size: 11px; /* Text mai mic */
+    font-weight: 600;
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px; /* Spațiu mic între iconiță și text */
+    height: 100%;
   }
 
   .action-item span.icon {
-    font-size: 20px;
+    font-size: 15px; /* Iconițe mai mici */
   }
 
   .action-item:not(:last-child) {
-    border-right: 1px solid #eee;
+    border-right: 1px solid #f0f0f0;
   }
   
-  /* Evidențiem butonul de comandă (WhatsApp) */
   .action-item.whatsapp {
     color: #25D366;
   }
 }
 
 @media (min-width: 769px) {
-  .mobile-actions {
-    display: none;
-  }
+  .mobile-actions { display: none; }
 }
 
 </style>
@@ -1093,23 +1092,19 @@ h3 {
 
   <div class="mobile-actions">
   <a href="tel:+37378242489" class="action-item">
-    <span class="icon">📞</span>
-    SUNĂ
+    <span class="icon">📞</span> Sună
   </a>
   
   <a href="https://wa.me/37378242489" target="_blank" class="action-item whatsapp">
-    <span class="icon">💬</span>
-    WHATSAPP
+    <span class="icon">💬</span> Chat
   </a>
 
   <a href="#locatie" class="action-item">
-    <span class="icon">📍</span>
-    LOCAȚIE
+    <span class="icon">📍</span> Hartă
   </a>
 
   <a href="https://www.instagram.com/paninidaarthuro/" target="_blank" class="action-item">
-    <span class="icon">📸</span>
-    INSTA
+    <span class="icon">📸</span> Insta
   </a>
 </div>
 
