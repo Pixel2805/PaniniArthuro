@@ -176,56 +176,76 @@ h3 {
 }
 
 
-/* --- BARA DE ACȚIUNI MOBIL COMPACTĂ --- */
-@media (max-width: 768px) {
-  body {
-    padding-bottom: 55px; /* Spațiu mai mic jos */
-  }
 
-  .mobile-actions {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95); /* Ușor transparent pentru aspect modern */
-    backdrop-filter: blur(5px);
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-    z-index: 9999;
-    height: 48px; /* Înălțime redusă */
-    align-items: center;
-    border-top: 1px solid #eee;
-  }
-
-  .action-item {
-    flex: 1;
-    text-align: center;
-    text-decoration: none;
-    color: #444;
-    font-size: 11px; /* Text mai mic */
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px; /* Spațiu mic între iconiță și text */
-    height: 100%;
-  }
-
-  .action-item span.icon {
-    font-size: 15px; /* Iconițe mai mici */
-  }
-
-  .action-item:not(:last-child) {
-    border-right: 1px solid #f0f0f0;
-  }
-  
-  .action-item.whatsapp {
-    color: #25D366;
-  }
+/* --- FIX FINAL CĂUTARE --- */
+.search-wrapper-final {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    margin-left: 10px;
 }
 
-@media (min-width: 769px) {
-  .mobile-actions { display: none; }
+.search-pill-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 4px 12px;
+    background: rgba();
+    width: 150px;
+}
+
+.search-pill-box input {
+    background: none;
+    border: none;
+    color: white;
+    outline: none;
+    width: 100%;
+    font-size: 13px;
+}
+
+.search-pill-box input::placeholder { color: var(white); }
+
+.lupa-icon {
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+/* LISTA CARE APARE SUB */
+#final-results-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 99999; /* Să fie peste orice */
+    margin-top: 8px;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.res-item {
+    padding: 10px;
+    border-bottom: 1px solid #575757;
+    color: #000000 !important;
+    text-align: left;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.res-item:hover { background: #f0f0f0; }
+
+@media (max-width: 768px) {
+    .search-wrapper-final { display: block; margin: 15px auto; width: 50%; }
+    .search-pill-box { width: 100%; background: rgb(); }
+    .search-pill-box input { color: rgb(white); }
+    .lupa-icon { color: black; }
 }
 
 </style>
@@ -236,6 +256,7 @@ h3 {
 
  <header>
     <div class="container">
+      
       <div class="brand">
         <img src="images/logo.png" alt="Panini da Arthuro - logo">
         <div>
@@ -244,18 +265,27 @@ h3 {
           <div id="status-program" style="margin-top: 10px; font-weight: bold; font-size: 14px;">
   </div>
           <nav>
-            | <a href="#pizza">Pizza</a>
-            | <a href="#paste">Paste</a>|
-            <a href="#meniu">Panini</a>|
-            <a href="#deserturi">Desert</a>|
-            <a href="#bauturi">Băuturi</a>|
-            <a href="#produse-italiene">Produse-Italiene</a>|
-            <a href="#alte-produse">Alte-Produse-Italiene</a>|
-            <a href="#locatie">Locație</a>|
-            <a href="#livrare">Livrare</a>|
-            <a href="#contact">Contact</a>|
-            <a href="#recenzii">Feedback</a>|
-          </nav>
+          | <a href="#pizza">Pizza</a>
+          | <a href="#paste">Paste</a>|
+          <a href="#meniu">Panini</a>|
+          <a href="#deserturi">Desert</a>|
+          <a href="#bauturi">Băuturi</a>|
+          <a href="#produse-italiene">Produse-Italiene</a>|
+          <a href="#alte-produse">Alte-Produse-Italiene</a>|
+          <a href="#locatie">Locație</a>|
+          <a href="#livrare">Livrare</a>|
+          <a href="#contact">Contact</a>|
+          <a href="#recenzii">Feedback</a>|
+
+          <div class="search-wrapper-final">
+    <div class="search-pill-box">
+        <input type="text" id="finalSearch" placeholder="Căutare..." autocomplete="off">
+        <span>🔍</span>
+    </div>
+    <div id="final-results-list"></div>
+</div>
+        </nav>
+
         </div>
       </div>
     </div>
@@ -376,7 +406,7 @@ h3 {
         <div class="menu-card">
           <div class="menu-card-content">
             <h3>Pizza Tonno</h3>
-            <p>Sos de rosii, mozzarella, ton, ceapă roșie, măsline.</p>
+            <p>Sos de roșii, mozzarella, ton, ceapă roșie, măsline.</p>
             <p class="price">149 Lei</p>
           </div>
         </div>
@@ -1122,6 +1152,71 @@ h3 {
 
   <!-- Buton SUS -->
   <button id="scrollTopBtn" title="Înapoi sus">↑</button>
+
+
+
+<script>
+  const searchInput = document.getElementById('finalSearch');
+  const resultsList = document.getElementById('final-results-list');
+
+  function fărăDiacritice(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  }
+
+  searchInput.addEventListener('input', function () {
+    const query = this.value.trim().toLowerCase();
+    const queryNorm = fărăDiacritice(query);
+    resultsList.innerHTML = '';
+
+    if (query.length < 2) {
+      resultsList.style.display = 'none';
+      return;
+    }
+
+    const cards = document.querySelectorAll('.menu-card');
+    const matches = [];
+
+    cards.forEach(card => {
+      const name = card.querySelector('h3');
+      const price = card.querySelector('.price');
+      const text = name ? fărăDiacritice(name.textContent) : '';
+
+      if (text.includes(queryNorm) && name) {
+        matches.push({
+          name: name.textContent.trim(),
+          price: price ? price.textContent.trim() : '',
+          card: card
+        });
+      }
+    });
+
+    if (matches.length === 0) {
+      resultsList.innerHTML = '<div class="res-item" style="justify-content:center;color:#999;">Niciun rezultat găsit.</div>';
+    } else {
+      matches.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'res-item';
+        div.innerHTML = `<span>${item.name}</span><span style="color:#254b23;font-weight:bold;">${item.price}</span>`;
+        div.addEventListener('click', () => {
+          item.card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          item.card.style.outline = '3px solid #254b23';
+          setTimeout(() => item.card.style.outline = '', 2000);
+          resultsList.style.display = 'none';
+          searchInput.value = '';
+        });
+        resultsList.appendChild(div);
+      });
+    }
+
+    resultsList.style.display = 'block';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.search-wrapper-final')) {
+      resultsList.style.display = 'none';
+    }
+  });
+</script>
 
   <script>
     // Buton scroll top vizibil când se derulează
