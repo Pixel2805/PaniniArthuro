@@ -139,177 +139,313 @@
     }
 
     #scrollTopBtn {
-  position: fixed;
-  bottom: 70px; /* Am ridicat butonul de la 25px la 70px */
-  right: 20px;
-  background-color: var(--accent);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 45px; /* L-am făcut un pic mai mic să fie discret */
-  height: 45px;
-  font-size: 20px;
-  cursor: pointer;
-  display: none;
-  z-index: 999; /* Se asigură că stă deasupra conținutului */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  transition: opacity 0.3s;
-}
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transition: opacity 0.3s;
+    }
   
-/* Titluri mari și denumiri panini & băuturi în verde */
-.menu-section h2,
-h2 {
-  color: #253f1a !important;
-  font-weight: bold;
-}
+    .menu-section h2, h2 {
+      color: #253f1a !important;
+      font-weight: bold;
+    }
 
-.menu-card h3,
-h3 {
-  color: #253f1a !important;
-  font-weight: bold;
-}
+    .menu-card h3, h3 {
+      color: #253f1a !important;
+      font-weight: bold;
+    }
 
-/* Prețurile rămân negre */
-.price {
-  color: black !important;
-  font-weight: bold;
-}
+    .price {
+      color: black !important;
+      font-weight: bold;
+    }
 
+    .search-wrapper-final {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
 
+    .search-pill-box {
+      display: flex;
+      align-items: center;
+      border: 1px solid rgb(255, 255, 255);
+      border-radius: 20px;
+      padding: 4px 12px;
+      background: rgba(0,0,0,0.15);
+      width: 150px;
+    }
 
-/* --- FIX FINAL CĂUTARE --- */
-.search-wrapper-final {
-    display: inline-block;
-    position: relative;
-    vertical-align: middle;
-    margin-left: 10px;
-}
+    .search-pill-box input {
+      background: none;
+      border: none;
+      color: white;
+      outline: none;
+      width: 100%;
+      font-size: 13px;
+    }
 
-.search-pill-box {
-    display: flex;
-    align-items: center;
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 20px;
-    padding: 4px 12px;
-    background: rgba();
-    width: 150px;
-}
+    .search-pill-box input::placeholder { color: rgba(255,255,255,0.7); }
 
-.search-pill-box input {
-    background: none;
-    border: none;
-    color: white;
-    outline: none;
-    width: 100%;
-    font-size: 13px;
-}
+    .lupa-icon {
+      font-size: 14px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
 
-.search-pill-box input::placeholder { color: var(white); }
+    #final-results-list {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgb(255, 255, 255);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 99999;
+      margin-top: 8px;
+      display: none;
+      max-height: 200px;
+      overflow-y: auto;
+    }
 
-.lupa-icon {
-    font-size: 14px;
-    cursor: pointer;
-    margin-left: 5px;
-}
+    .res-item {
+      padding: 10px;
+      border-bottom: 1px solid #575757;
+      color: #000000 !important;
+      text-align: left;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+    }
 
-/* LISTA CARE APARE SUB */
-#final-results-list {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgb(255, 255, 255);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 99999; /* Să fie peste orice */
-    margin-top: 8px;
-    display: none;
-    max-height: 200px;
-    overflow-y: auto;
-}
+    .res-item:hover { background: #f0f0f0; }
 
-.res-item {
-    padding: 10px;
-    border-bottom: 1px solid #575757;
-    color: #000000 !important;
-    text-align: left;
-    font-size: 12px;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-}
+    @media (max-width: 768px) {
+      .search-wrapper-final { display: block; margin: 15px auto; width: 50%; }
+      .search-pill-box { width: 100%; }
+      .search-pill-box input { color: white; }
+    }
 
-.res-item:hover { background: #f0f0f0; }
+    .mobile-actions {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+      z-index: 9999;
+      border-top: 1px solid #eee;
+    }
 
-@media (max-width: 768px) {
-    .search-wrapper-final { display: block; margin: 15px auto; width: 50%; }
-    .search-pill-box { width: 100%; background: rgb(); }
-    .search-pill-box input { color: rgb(white); }
-    .lupa-icon { color: black; }
-}
+    .action-item {
+      text-decoration: none;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 12px;
+      font-weight: bold;
+      flex: 1;
+    }
 
+    .action-item .icon {
+      font-size: 20px;
+      margin-bottom: 2px;
+    }
 
-/* Containerul care ține butoanele mereu jos */
-.mobile-actions {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: white;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px 0;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-  z-index: 9999; /* Să stea peste orice alt element */
-  border-top: 1px solid #eee;
-}
+    .action-item.whatsapp .icon {
+      color: #25D366;
+    }
 
-/* Stilul fiecărui buton individual */
-.action-item {
-  text-decoration: none;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 12px;
-  font-weight: bold;
-  flex: 1; /* Împarte spațiul egal între cele 4 butoane */
-}
+    body {
+      padding-bottom: 70px; 
+    }
 
-.action-item .icon {
-  font-size: 20px;
-  margin-bottom: 2px;
-}
+    @media (min-width: 769px) {
+      .mobile-actions {
+        display: none;
+      }
+      body {
+        padding-bottom: 0;
+      }
+    }
 
-/* Culori specifice (opțional) */
-.action-item.whatsapp .icon {
-  color: #25D366;
-}
+    /* ===== RECENZII SLIDER ===== */
+    .reviews-slider-wrapper {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding: 10px 0 20px;
+    }
 
-/* Foarte IMPORTANT: Adăugăm spațiu la finalul paginii 
-   ca butoanele să nu acopere textul din footer */
-body {
-  padding-bottom: 70px; 
-}
+    .reviews-track {
+      display: flex;
+      transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
 
-/* Pe calculatoare (desktop) de obicei aceste butoane se ascund */
-@media (min-width: 769px) {
-  .mobile-actions {
-    display: none;
-  }
-  body {
-    padding-bottom: 0;
-  }
-}
+    .review-slide {
+      min-width: 100%;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
 
+    .review-card-inner {
+      background: #fff;
+      border-radius: 14px;
+      padding: 28px 32px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+    }
 
+    .review-quote-icon {
+      font-size: 52px;
+      color: #c8ddc6;
+      line-height: 1;
+      margin-bottom: 8px;
+      font-family: Georgia, serif;
+    }
 
-</style>
+    .review-text {
+      font-size: 16px;
+      color: #333;
+      font-style: italic;
+      line-height: 1.7;
+      margin: 0 0 18px;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .review-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 16px;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .review-author-info { text-align: left; }
+
+    .review-author-name {
+      font-weight: bold;
+      font-size: 14px;
+      color: #253f1a;
+    }
+
+    .review-stars {
+      color: #f4b400;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .review-source {
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* Dots indicatori */
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #c8ddc6;
+      transition: background 0.4s, transform 0.4s;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+    }
+
+    .slider-dot.active {
+      background: #254b23;
+      transform: scale(1.3);
+    }
+
+    /* Bara de progres */
+    .slider-progress-bar {
+      height: 3px;
+      background: #e0e0e0;
+      border-radius: 2px;
+      margin: 14px 40px 0;
+      overflow: hidden;
+    }
+
+    .slider-progress-fill {
+      height: 100%;
+      background: #254b23;
+      border-radius: 2px;
+      width: 0%;
+      transition: width linear;
+    }
+
+    /* Butoane prev/next */
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #254b23;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .slider-btn:hover { background: #f0f7ef; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .slider-btn.prev { left: 4px; }
+    .slider-btn.next { right: 4px; }
+
+    @media (max-width: 600px) {
+      .review-card-inner { padding: 20px 18px; }
+      .slider-btn { display: none; }
+    }
+  </style>
 </head>
 
 <body>
-  
 
  <header>
     <div class="container">
@@ -319,8 +455,7 @@ body {
         <div>
           <h1>Panini da Arthuro</h1>
           <p class="lead">Panini, pizza și paste – proaspete, cu ingrediente italiene și gust autentic.</p>
-          <div id="status-program" style="margin-top: 10px; font-weight: bold; font-size: 14px;">
-  </div>
+          <div id="status-program" style="margin-top: 10px; font-weight: bold; font-size: 14px;"></div>
           <nav>
           | <a href="#pizza">Pizza</a>
           | <a href="#paste">Paste</a>|
@@ -332,7 +467,8 @@ body {
           <a href="#locatie">Locație</a>|
           <a href="#livrare">Livrare</a>|
           <a href="#contact">Contact</a>|
-          <a href="#recenzii">Feedback</a>|
+          <a href="#recenzii">Recenzii</a>|
+          <a href="#feedback">Feedback</a>|
 
           <div class="search-wrapper-final">
     <div class="search-pill-box">
@@ -350,245 +486,59 @@ body {
 
   <main class="container">
     
-    
     <!-- ================= PIZZA ================= -->
     <section id="pizza" class="menu-section">
       <h2>PIZZA</h2>
-
       <div class="menu-grid">
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Casei</h3>
-            <p>Sos de roșii, mascarpone, prosciutto Parma, parmezan, rucola.</p>
-            <p class="price">160 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Prosciutto i Funghi</h3>
-            <p>Sos de roșii, mozzarella, prosciutto cotto, ciuperci.</p>
-            <p class="price">148 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Salsiccia e Funghi</h3>
-            <p>Sos de roșii, mozzarella, tocătură porc-vită, ciuperci.</p>
-            <p class="price">144 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Capriciossa</h3>
-            <p>Sos de roșii, mozzarella, prosciutto cotto, măsline, anghinare, ciuperci.</p>
-            <p class="price">158 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Diavola</h3>
-            <p>Sos de roșii, mozzarella, salam picant.</p>
-            <p class="price">139 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Salami</h3>
-            <p>Sos de roșii, mozzarella, salam măturat, salam Milano, Prosciutto Cotto.</p>
-            <p class="price">157 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Bufalina</h3>
-            <p>Sos de roșii, mozzarella de bivoliță, rucola, roșii cherry.</p>
-            <p class="price">155 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Quatro Formaggi</h3>
-            <p>Sos alb, cașcaval brie, gorgonzola, parmezan, pecorino.</p>
-            <p class="price">160 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Vegetariană</h3>
-            <p>Sos de roșii, mozzarella, dovlecel, vânătă coaptă, ardei kapia.</p>
-            <p class="price">144 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Siciliană</h3>
-            <p>Sos de roșii, mozzarella, acchiughe, capere, măsline, oregano.</p>
-            <p class="price">145 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Marinară</h3>
-            <p>Sos de roșii, usturoi, oregano, ulei de măsline.</p>
-            <p class="price">125 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Margheritta</h3>
-            <p>Sos de roșii, mozzarella.</p>
-            <p class="price">125 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Panceta e Granna</h3>
-            <p>Mozzarella, Pancetta, Parmezan.</p>
-            <p class="price">150 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Tonno</h3>
-            <p>Sos de roșii, mozzarella, ton, ceapă roșie, măsline.</p>
-            <p class="price">149 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pizza Kids</h3>
-            <p>Sos de roșii, mozzarella.</p>
-            <p class="price">125 Lei</p>
-          </div>
-        </div>        
-
-        
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Casei</h3><p>Sos de roșii, mascarpone, prosciutto Parma, parmezan, rucola.</p><p class="price">160 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Prosciutto i Funghi</h3><p>Sos de roșii, mozzarella, prosciutto cotto, ciuperci.</p><p class="price">148 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Salsiccia e Funghi</h3><p>Sos de roșii, mozzarella, tocătură porc-vită, ciuperci.</p><p class="price">144 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Capriciossa</h3><p>Sos de roșii, mozzarella, prosciutto cotto, măsline, anghinare, ciuperci.</p><p class="price">158 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Diavola</h3><p>Sos de roșii, mozzarella, salam picant.</p><p class="price">139 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Salami</h3><p>Sos de roșii, mozzarella, salam măturat, salam Milano, Prosciutto Cotto.</p><p class="price">157 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Bufalina</h3><p>Sos de roșii, mozzarella de bivoliță, rucola, roșii cherry.</p><p class="price">155 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Quatro Formaggi</h3><p>Sos alb, cașcaval brie, gorgonzola, parmezan, pecorino.</p><p class="price">160 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Vegetariană</h3><p>Sos de roșii, mozzarella, dovlecel, vânătă coaptă, ardei kapia.</p><p class="price">144 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Siciliană</h3><p>Sos de roșii, mozzarella, acchiughe, capere, măsline, oregano.</p><p class="price">145 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Marinară</h3><p>Sos de roșii, usturoi, oregano, ulei de măsline.</p><p class="price">125 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Margheritta</h3><p>Sos de roșii, mozzarella.</p><p class="price">125 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Panceta e Granna</h3><p>Mozzarella, Pancetta, Parmezan.</p><p class="price">150 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Tonno</h3><p>Sos de roșii, mozzarella, ton, ceapă roșie, măsline.</p><p class="price">149 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Kids</h3><p>Sos de roșii, mozzarella.</p><p class="price">125 Lei</p></div></div>
       </div>
     </section>
-
 
     <!-- ================= PASTE ================= -->
     <section id="paste" class="menu-section">
       <h2>Paste</h2>
-
       <div class="menu-grid">
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pasta Carbonara</h3>
-            <p><strong>320 gr.</strong></p>
-            <p>Spaghetti, Guancialle, Parmigianno, Gălbenuș de ou pasteurizat.</p>
-            <p class="price">125 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pasta Bolognese</h3>
-            <p><strong>320 gr.</strong></p>
-            <p>Spaghetti, Sos Bolognese, Parmigianno.</p>
-            <p class="price">109 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pasta Amatriciana</h3>
-            <p><strong>320 gr.</strong></p>
-            <p>Spaghetti, Sos de Roșii, Guancialle, Ceapă, Parmigianno.</p>
-            <p class="price">125 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pasta Prosciutto</h3>
-            <p><strong>320 gr.</strong></p>
-            <p>Spaghetti , Prosciutto Parma, frișcă, parmezan.</p>
-            <p class="price">120 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pasta Pomodoro</h3>
-            <p><strong>290 gr.</strong></p>
-            <p>Spaghetti, salsa pomodoro, parmezan.</p>
-            <p class="price">109 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-content">
-            <h3>Pasta cu Creveți</h3>
-            <p><strong>320 gr.</strong></p>
-            <p>Tagliatelle, creveți, salsa pomodoro, parmezan.</p>
-            <p class="price">135 Lei</p>
-          </div>
-        </div>
-
-        
-
-        
+        <div class="menu-card"><div class="menu-card-content"><h3>Pasta Carbonara</h3><p><strong>320 gr.</strong></p><p>Spaghetti, Guancialle, Parmigianno, Gălbenuș de ou pasteurizat.</p><p class="price">125 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pasta Bolognese</h3><p><strong>320 gr.</strong></p><p>Spaghetti, Sos Bolognese, Parmigianno.</p><p class="price">109 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pasta Amatriciana</h3><p><strong>320 gr.</strong></p><p>Spaghetti, Sos de Roșii, Guancialle, Ceapă, Parmigianno.</p><p class="price">125 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pasta Prosciutto</h3><p><strong>320 gr.</strong></p><p>Spaghetti, Prosciutto Parma, frișcă, parmezan.</p><p class="price">120 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pasta Pomodoro</h3><p><strong>290 gr.</strong></p><p>Spaghetti, salsa pomodoro, parmezan.</p><p class="price">109 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pasta cu Creveți</h3><p><strong>320 gr.</strong></p><p>Tagliatelle, creveți, salsa pomodoro, parmezan.</p><p class="price">135 Lei</p></div></div>
       </div>
     </section>
 
-
-
-    <!-- =================PANINI ================= -->
+    <!-- ================= PANINI ================= -->
     <section id="meniu" class="menu-section">
       <h2>Panini</h2>
-
       <div class="menu-grid">
         <div class="menu-card" style="grid-column: 1 / -1; display: flex; justify-content: center; align-items: center;">
           <img src="images/panini.jpg" alt="Panini" style="width: 100%; max-width: 800px; height: auto; object-fit: contain;">
         </div>
-
-        
       </div>
     </section>
 
-
-      <!-- ==================== DESERTURI ==================== -->
-<section id="deserturi" class="menu-section">
-  <h2>Deserturi</h2>
-
-  <div class="menu-grid">
-
-    <div class="menu-card">
-      <div class="menu-card-content">
-        <h3>Tiramisu de casă</h3>
-        <p class="price">60 Lei</p>
+    <!-- ================= DESERTURI ================= -->
+    <section id="deserturi" class="menu-section">
+      <h2>Deserturi</h2>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="menu-card-content"><h3>Tiramisu de casă</h3><p class="price">60 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cheesecake</h3><p class="price">70 Lei</p></div></div>
       </div>
-    </div>
-
-
-    <div class="menu-card">
-      <div class="menu-card-content">
-        <h3>Cheesecake</h3>
-        <p class="price">70 Lei</p>
-      </div>
-    </div>
-
-    
-
-  </div>
-</section>
-
-
+    </section>
 
     <!-- ================= BĂUTURI ================= -->
     <section id="bauturi" class="menu-section">
@@ -606,34 +556,34 @@ body {
         <div class="menu-card"><div class="menu-card-content"><h3>Ceai fructe naturale 1 l</h3><p>(Cătina)</p><p class="price">65 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Ceai fructe naturale 330 ml</h3><p>(Cătina)</p><p class="price">28 Lei</p></div></div>
       </div>
-        <h2>Soft Drinks</h2>
+      <h2>Soft Drinks</h2>
       <div class="menu-grid">
         <div class="menu-card"><div class="menu-card-content"><h3>Gin Tonic 300 ml</h3><p class="price">85 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Aperol Spritz 300 ml</h3><p class="price">90 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Prosecco la pahar 150 ml</h3><p class="price">45 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Limonadă clasică 250 ml</h3><p class="price">50 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Limonadă căpșuni și cocos <br>250 ml</h3><p class="price">50 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Limonadă mango și maracuia <br>250 ml</h3><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Limonadă căpșuni și cocos 250 ml</h3><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Limonadă mango și maracuia 250 ml</h3><p class="price">50 Lei</p></div></div>
       </div>
-        <h2>Băuturi nealcoolice la sticlă</h2>
+      <h2>Băuturi nealcoolice la sticlă</h2>
       <div class="menu-grid">
         <div class="menu-card"><div class="menu-card-content"><h3>Coca-Cola 250 ml</h3><p>Coca-Cola Zero 250 ml</p><p class="price">25 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Fanta 250 ml</h3><p class="price">25 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Sprite 250 ml</h3><p class="price">25 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Fuzetea piersică 500 ml</h3><p class="price">25 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Fuzetea fructe de pădure <br>500 ml</h3><p class="price">30 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Fuzetea fructe de pădure 500 ml</h3><p class="price">30 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Fuzetea afine 500 ml</h3><p class="price">30 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Burn 250 ml</h3><p class="price">35 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Pulpy Piersici <br>330 ml</h3><p class="price">30 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Pulpy Grapefruit <br>330 ml</h3><p class="price">30 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Pulpy Portocală <br>330 ml</h3><p class="price">30 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Pulpy Piersici 330 ml</h3><p class="price">30 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Pulpy Grapefruit 330 ml</h3><p class="price">30 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Pulpy Portocală 330 ml</h3><p class="price">30 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Cappy Mini 250 ml</h3><p class="price">25 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Schweppes Mojito <br>250 ml</h3><p class="price">25 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Schweppes Pink Tonic <br>250 ml</h3><p class="price">25 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Schweppes Indian Tonic <br>250 ml</h3><p class="price">25 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Schweppes Mojito 250 ml</h3><p class="price">25 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Schweppes Pink Tonic 250 ml</h3><p class="price">25 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Schweppes Indian Tonic 250 ml</h3><p class="price">25 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>San Benedetto 500 ml</h3><p>Plată / Minerală</p><p class="price">20 Lei</p></div></div>
       </div>
-        <h2>Băuturi alcoolice la sticlă</h2>
+      <h2>Băuturi alcoolice la sticlă</h2>
       <div class="menu-grid">
         <div class="menu-card"><div class="menu-card-content"><h3>Prosecco DOG 0.75L</h3><p class="price">230 Lei</p></div></div>
         <div class="menu-card"><div class="menu-card-content"><h3>Prosecco Picini 0.75L</h3><p class="price">270 Lei</p></div></div>
@@ -652,373 +602,84 @@ body {
     <section id="produse-italiene" class="menu-section">
       <h2>Produse Italiene</h2>
       <div class="menu-grid">
-
-        <div class="menu-card">
-          <img src="images/diparma.jpg" alt="Prosciutto di Parma">
-          <div class="menu-card-content">
-            <h3>Prosciutto di Parma</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">72.00 Lei</p>
-          </div>
-        </div>
-
-        <!-- <div class="menu-card">
-          <img src="images/didolcelucia.jpg" alt="Prosciutto di Dolce Lucia">
-          <div class="menu-card-content">
-            <h3>Prosciutto di Dolce Lucia</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">61.50 Lei</p>
-          </div>
-        </div> -->
-
-        <!-- <div class="menu-card">
-          <img src="images/fileucurcan.jpg" alt="Fileu Curcan">
-          <div class="menu-card-content">
-            <h3>Fileu Curcan</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">82.00 Lei</p>
-          </div>
-        </div> -->
-
-        <!-- <div class="menu-card">
-          <img src="images/Nostrano.jpg" alt="Prosciutto Nostrano">
-          <div class="menu-card-content">
-            <h3>Prosciutto Nostrano</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">67.40 Lei</p>
-          </div>
-        </div> -->
-
-        <!-- <div class="menu-card">
-          <img src="images/prosciuttocotto.jpg" alt="Prosciutto Cotto Silver">
-          <div class="menu-card-content">
-            <h3>Prosciutto Cotto Silver</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">36.80 Lei</p>
-          </div>
-        </div> -->
-
-        <div class="menu-card">
-          <img src="images/prosciuttocotto.jpg" alt="Prosciutto Cotto Naturalis">
-          <div class="menu-card-content">
-            <h3>Prosciutto Cotto Naturalis</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">42.80 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <img src="images/puntaanca.jpg" alt="Bresaola Punta Anca">
-          <div class="menu-card-content">
-            <h3>Bresaola Punta Anca</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">109.20 Lei</p>
-          </div>
-        </div>
-
-        <!-- <div class="menu-card">
-          <img src="images/montanari.jpg" alt="Ciccioli Montanari">
-          <div class="menu-card-content">
-            <h3>Ciccioli Montanari</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">45.00 Lei</p>
-          </div>
-        </div> -->
-
-        <!-- <div class="menu-card">
-          <img src="images/ditesta.jpg" alt="Coppa di Testa">
-          <div class="menu-card-content">
-            <h3>Coppa di Testa</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">45.00 Lei</p>
-          </div>
-        </div> -->
-
-        <!-- <div class="menu-card">
-          <img src="images/diprosciutto.jpg" alt="Fiocco di Prosciutto">
-          <div class="menu-card-content">
-            <h3>Fiocco di Prosciutto</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">62.40 Lei</p>
-          </div>
-        </div> -->
-
-        <div class="menu-card">
-          <img src="images/guancialli.jpg" alt="Guancialli">
-          <div class="menu-card-content">
-            <h3>Guancialli</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">59.30 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <img src="images/maturata.jpg" alt="Coppa Măturat">
-          <div class="menu-card-content">
-            <h3>Coppa Măturată</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">72.00 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <img src="images/pancettainhartie.jpg" alt="Pancetta învârtită">
-          <div class="menu-card-content">
-            <h3>Pancetta învârtită</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">62.40 Lei</p>
-          </div>
-        </div>
-
-        <!-- <div class="menu-card">
-          <img src="images/porchetta.jpg" alt="Tronchetto di Porchetta">
-          <div class="menu-card-content">
-            <h3>Tronchetto di Porchetta</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">72.10 Lei</p>
-          </div>
-        </div> -->
-
-        <div class="menu-card">
-          <img src="images/salammaturat.jpg" alt="Salam măturat">
-          <div class="menu-card-content">
-            <h3>Salam măturat</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">66.30 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <img src="images/vetricinapiccante.jpg" alt="Vetricina Piccante">
-          <div class="menu-card-content">
-            <h3>Vetricina Piccante</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">47.70 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <img src="images/salammilano.jpg" alt="Salam Milano">
-          <div class="menu-card-content">
-            <h3>Salam Milano</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">47.70 Lei</p>
-          </div>
-        </div>
-
-        <!-- <div class="menu-card">
-          <img src="images/salamtoscano.jpg" alt="Salam Toscano">
-          <div class="menu-card-content">
-            <h3>Salam Toscano</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">62.40 Lei</p>
-          </div>
-        </div> -->
-
-        <div class="menu-card">
-          <img src="images/Mortadellaanticabologna.jpg" alt="Mortadela Bologna">
-          <div class="menu-card-content">
-            <h3>Mortadela Bologna</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">49.30 Lei</p>
-          </div>
-        </div>
-
-        <!-- <div class="menu-card">
-          <img src="images/mortadellafistic.jpg" alt="Mortadella Pistachio">
-          <div class="menu-card-content">
-            <h3>Mortadella Pistachio</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">49.90 Lei</p>
-          </div>
-        </div> -->
-
-        <!-- <div class="menu-card">
-          <img src="images/mortadellacutrufe.jpg" alt="Mortadella cu Trufe">
-          <div class="menu-card-content">
-            <h3>Mortadella cu Trufe</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">66.30 Lei</p>
-          </div>
-        </div> -->
-
-        <!-- <div class="menu-card">
-          <img src="images/roastbeef.jpg" alt="Roastbeef">
-          <div class="menu-card-content">
-            <h3>Roastbeef</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">107.20 Lei</p>
-          </div>
-        </div> -->
-
-        <div class="menu-card">
-          <img src="images/scamoza.jpg" alt="Scamorza afumată">
-          <div class="menu-card-content">
-            <h3>Scamorza afumată</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">50.00 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <img src="images/parmigiano24luni.jpg" alt="Parmigiano 24 luni">
-          <div class="menu-card-content">
-            <h3>Parmigiano 24 luni</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">72.50 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <img src="images/pecorino.jpg" alt="Fioretto Pecorino">
-          <div class="menu-card-content">
-            <h3>Fioretto Pecorino</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">79.95 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <img src="images/primosale.jpg" alt="Primo Sale">
-          <div class="menu-card-content">
-            <h3>Primo Sale</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">61.20 Lei</p>
-          </div>
-        </div>
-
-        <!-- <div class="menu-card">
-          <img src="images/branzabormiovaca.jpg" alt="Brânză Bormio (de vacă)">
-          <div class="menu-card-content">
-            <h3>Brânză Bormio (de vacă)</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">54.70 Lei</p>
-          </div>
-        </div> -->
-
-        <div class="menu-card">
-          <img src="images/gorgonzolacolombodop.jpg" alt="Gorgonzola Colombo DOP">
-          <div class="menu-card-content">
-            <h3>Gorgonzola Colombo DOP</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">52.70 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <img src="images/straciatella.jpg" alt="Stracciatella">
-          <div class="menu-card-content">
-            <h3>Stracciatella</h3>
-            <p>Preț per 150 gr</p>
-            <p class="price">88.00 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <img src="images/mozzarella125gr.jpg" alt="Mozzarella">
-          <div class="menu-card-content">
-            <h3>Mozzarella</h3>
-            <p>Preț per 125 gr</p>
-            <p class="price">42.00 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <img src="images/mascarpone250gr.jpg" alt="Mascarpone">
-          <div class="menu-card-content">
-            <h3>Mascarpone</h3>
-            <p>Preț per 250 gr</p>
-            <p class="price">65.00 Lei</p>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <img src="images/cascavalbrie.jpg" alt="Cașcaval Brie">
-          <div class="menu-card-content">
-            <h3>Cașcaval Brie</h3>
-            <p>Preț per 100 gr</p>
-            <p class="price">56.60 Lei</p>
-          </div>
-        </div>
-
+        <div class="menu-card"><img src="images/diparma.jpg" alt="Prosciutto di Parma"><div class="menu-card-content"><h3>Prosciutto di Parma</h3><p>Preț per 100 gr</p><p class="price">72.00 Lei</p></div></div>
+        <div class="menu-card"><img src="images/prosciuttocotto.jpg" alt="Prosciutto Cotto Naturalis"><div class="menu-card-content"><h3>Prosciutto Cotto Naturalis</h3><p>Preț per 100 gr</p><p class="price">42.80 Lei</p></div></div>
+        <div class="menu-card"><img src="images/puntaanca.jpg" alt="Bresaola Punta Anca"><div class="menu-card-content"><h3>Bresaola Punta Anca</h3><p>Preț per 100 gr</p><p class="price">109.20 Lei</p></div></div>
+        <div class="menu-card"><img src="images/guancialli.jpg" alt="Guancialli"><div class="menu-card-content"><h3>Guancialli</h3><p>Preț per 100 gr</p><p class="price">59.30 Lei</p></div></div>
+        <div class="menu-card"><img src="images/maturata.jpg" alt="Coppa Măturat"><div class="menu-card-content"><h3>Coppa Măturată</h3><p>Preț per 100 gr</p><p class="price">72.00 Lei</p></div></div>
+        <div class="menu-card"><img src="images/pancettainhartie.jpg" alt="Pancetta învârtită"><div class="menu-card-content"><h3>Pancetta învârtită</h3><p>Preț per 100 gr</p><p class="price">62.40 Lei</p></div></div>
+        <div class="menu-card"><img src="images/salammaturat.jpg" alt="Salam măturat"><div class="menu-card-content"><h3>Salam măturat</h3><p>Preț per 100 gr</p><p class="price">66.30 Lei</p></div></div>
+        <div class="menu-card"><img src="images/vetricinapiccante.jpg" alt="Vetricina Piccante"><div class="menu-card-content"><h3>Vetricina Piccante</h3><p>Preț per 100 gr</p><p class="price">47.70 Lei</p></div></div>
+        <div class="menu-card"><img src="images/salammilano.jpg" alt="Salam Milano"><div class="menu-card-content"><h3>Salam Milano</h3><p>Preț per 100 gr</p><p class="price">47.70 Lei</p></div></div>
+        <div class="menu-card"><img src="images/Mortadellaanticabologna.jpg" alt="Mortadela Bologna"><div class="menu-card-content"><h3>Mortadela Bologna</h3><p>Preț per 100 gr</p><p class="price">49.30 Lei</p></div></div>
+        <div class="menu-card"><img src="images/scamoza.jpg" alt="Scamorza afumată"><div class="menu-card-content"><h3>Scamorza afumată</h3><p>Preț per 100 gr</p><p class="price">50.00 Lei</p></div></div>
+        <div class="menu-card"><img src="images/parmigiano24luni.jpg" alt="Parmigiano 24 luni"><div class="menu-card-content"><h3>Parmigiano 24 luni</h3><p>Preț per 100 gr</p><p class="price">72.50 Lei</p></div></div>
+        <div class="menu-card"><img src="images/pecorino.jpg" alt="Fioretto Pecorino"><div class="menu-card-content"><h3>Fioretto Pecorino</h3><p>Preț per 100 gr</p><p class="price">79.95 Lei</p></div></div>
+        <div class="menu-card"><img src="images/primosale.jpg" alt="Primo Sale"><div class="menu-card-content"><h3>Primo Sale</h3><p>Preț per 100 gr</p><p class="price">61.20 Lei</p></div></div>
+        <div class="menu-card"><img src="images/gorgonzolacolombodop.jpg" alt="Gorgonzola Colombo DOP"><div class="menu-card-content"><h3>Gorgonzola Colombo DOP</h3><p>Preț per 100 gr</p><p class="price">52.70 Lei</p></div></div>
+        <div class="menu-card"><img src="images/straciatella.jpg" alt="Stracciatella"><div class="menu-card-content"><h3>Stracciatella</h3><p>Preț per 150 gr</p><p class="price">88.00 Lei</p></div></div>
+        <div class="menu-card"><img src="images/mozzarella125gr.jpg" alt="Mozzarella"><div class="menu-card-content"><h3>Mozzarella</h3><p>Preț per 125 gr</p><p class="price">42.00 Lei</p></div></div>
+        <div class="menu-card"><img src="images/mascarpone250gr.jpg" alt="Mascarpone"><div class="menu-card-content"><h3>Mascarpone</h3><p>Preț per 250 gr</p><p class="price">65.00 Lei</p></div></div>
+        <div class="menu-card"><img src="images/cascavalbrie.jpg" alt="Cașcaval Brie"><div class="menu-card-content"><h3>Cașcaval Brie</h3><p>Preț per 100 gr</p><p class="price">56.60 Lei</p></div></div>
       </div>
     </section>
 
-
-<!-- ==================== ALTE PRODUSE ITALIENE ==================== -->
-<section id="alte-produse" class="menu-section">
-  <h2>Alte produse italiene</h2>
-
-  <div class="menu-grid">
-
-    <!-- === TRUFE ȘI SPECIALITĂȚI === -->
-    <div class="menu-card"><div class="menu-card-content"><h3>Trufe negre</h3><p>30 gr</p><p class="price">285 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Carpaccio din trufe</h3><p>80 gr</p><p class="price">465 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Cremă de trufe negre</h3><p>180 gr</p><p class="price">445 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Carciofi alla Romana</h3><p>340 gr</p><p class="price">216 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Sos paste Alfredo cu trufe</h3><p>340 gr</p><p class="price">210 Lei</p></div></div>
-
-    <!-- === CONSERVE ȘI PEȘTE === -->
-    <div class="menu-card"><div class="menu-card-content"><h3>Hamsii în ulei extravirgin</h3><p>95 gr</p><p class="price">155 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Ton Nostromo</h3><p>3x70 gr</p><p class="price">130 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Ton San Marco</h3><p>3x70 gr</p><p class="price">115 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Gogoșari umpluți cu ton</h3><p>190 gr</p><p class="price">189 Lei</p></div></div>
-
-    <!-- === OȚET & ULEIURI === -->
-    <div class="menu-card"><div class="menu-card-content"><h3>Cremă de oțet balsamic</h3><p>250 ml</p><p class="price">145 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Cremă de oțet balsamic</h3><p>500 ml</p><p class="price">235 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Spray oțet balsamic</h3><p>250 ml</p><p class="price">125 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Spray Olio Extra Vergine Di Oliva</h3><p>250 ml</p><p class="price">195 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Spray ulei Extra Vergine cu rozmarin</h3><p>250 ml</p><p class="price">195 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Spray ulei Extra Vergine cu Trufe</h3><p>250 ml</p><p class="price">265 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Ulei Extra Virgin di Oliva</h3><p>1 L</p><p class="price">249 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Ulei Extra Virgin di Oliva</h3><p>0.5 L</p><p class="price">155 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Ulei sansa și măsline</h3><p>1 L</p><p class="price">165 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Ulei sansa și măsline</h3><p>0.5 L</p><p class="price">99 Lei</p></div></div>
-
-    <!-- === SOSURI & CREME === -->
-    <div class="menu-card"><div class="menu-card-content"><h3>Pesto Genovese</h3><p>180 gr</p><p class="price">155 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Pesto Genovese</h3><p>500 gr</p><p class="price">380 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Cremă de măsline negre</h3><p>500 gr</p><p class="price">300 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Cremă de măsline verzi</h3><p>500 gr</p><p class="price">300 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Cremă de anghinare cu usturoi</h3><p>500 gr</p><p class="price">345 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Salsa de ardei iute Calabria</h3><p>90 gr</p><p class="price">125 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Sos de roșii</h3><p>690 gr</p><p class="price">59 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Roșii uscate în ulei</h3><p>270 gr</p><p class="price">125 Lei</p></div></div>
-
-    <!-- === PASTE & GRISSINI & TARALLI === -->
-    <div class="menu-card"><div class="menu-card-content"><h3>Lasagna Casa Rinaldi</h3><p>500 gr</p><p class="price">70 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Grissini cu usturoi</h3><p>125 gr</p><p class="price">39 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Grissini cu rozmarin</h3><p>125 gr</p><p class="price">39 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Grissini clasici</h3><p>125 gr</p><p class="price">39 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Taralli fenicul</h3><p>200 gr</p><p class="price">55 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Taralli ulei de măsline</h3><p>200 gr</p><p class="price">55 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Taralli usturoi și ardei iute</h3><p>200 gr</p><p class="price">55 Lei</p></div></div>
-
-    <!-- === PASTE BRONZO & CR === -->
-    <div class="menu-card"><div class="menu-card-content"><h3>Paste Bronzo Tagliatelle</h3><p>500 gr</p><p class="price">53 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Paste Bronzo Farfale</h3><p>500 gr</p><p class="price">38 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Paste Bronzo Penne Rigate</h3><p>500 gr</p><p class="price">37 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Paste Bronzo Spaghetti</h3><p>500 gr</p><p class="price">37 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Paste CR Aroma de Crăciun</h3><p>500 gr</p><p class="price">83 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Paste CR Aroma Farfale</h3><p>500 gr</p><p class="price">113 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Sare de mare fino/grosso</h3><p>1 kg</p><p class="price">36 Lei</p></div></div>
-
-    <!-- === BISCUIȚI & DULCIURI === -->
-    <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Ore Liete Ricchi și Fibre</h3><p>250 gr</p><p class="price">63 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Ore Liete Fructe de Pădure</h3><p>240 gr</p><p class="price">56 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cuor di Fico</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Ferri di Cavallo</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cremoso al Pistacchio</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cuor di Amarena</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cioccorancia</h3><p>130 gr</p><p class="price">50 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cremoso Limonatte</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
-    <div class="menu-card"><div class="menu-card-content"><h3>Savoiardi Biscuiți Tiramisu</h3><p>500 gr</p><p class="price">140 Lei</p></div></div>
-
-  </div>
-</section>
-
-
+    <!-- ================= ALTE PRODUSE ITALIENE ================= -->
+    <section id="alte-produse" class="menu-section">
+      <h2>Alte produse italiene</h2>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="menu-card-content"><h3>Trufe negre</h3><p>30 gr</p><p class="price">285 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Carpaccio din trufe</h3><p>80 gr</p><p class="price">465 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cremă de trufe negre</h3><p>180 gr</p><p class="price">445 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Carciofi alla Romana</h3><p>340 gr</p><p class="price">216 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Sos paste Alfredo cu trufe</h3><p>340 gr</p><p class="price">210 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Hamsii în ulei extravirgin</h3><p>95 gr</p><p class="price">155 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Ton Nostromo</h3><p>3x70 gr</p><p class="price">130 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Ton San Marco</h3><p>3x70 gr</p><p class="price">115 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Gogoșari umpluți cu ton</h3><p>190 gr</p><p class="price">189 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cremă de oțet balsamic</h3><p>250 ml</p><p class="price">145 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cremă de oțet balsamic</h3><p>500 ml</p><p class="price">235 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Spray oțet balsamic</h3><p>250 ml</p><p class="price">125 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Spray Olio Extra Vergine Di Oliva</h3><p>250 ml</p><p class="price">195 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Spray ulei Extra Vergine cu rozmarin</h3><p>250 ml</p><p class="price">195 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Spray ulei Extra Vergine cu Trufe</h3><p>250 ml</p><p class="price">265 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Ulei Extra Virgin di Oliva</h3><p>1 L</p><p class="price">249 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Ulei Extra Virgin di Oliva</h3><p>0.5 L</p><p class="price">155 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Ulei sansa și măsline</h3><p>1 L</p><p class="price">165 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Ulei sansa și măsline</h3><p>0.5 L</p><p class="price">99 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pesto Genovese</h3><p>180 gr</p><p class="price">155 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Pesto Genovese</h3><p>500 gr</p><p class="price">380 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cremă de măsline negre</h3><p>500 gr</p><p class="price">300 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cremă de măsline verzi</h3><p>500 gr</p><p class="price">300 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cremă de anghinare cu usturoi</h3><p>500 gr</p><p class="price">345 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Salsa de ardei iute Calabria</h3><p>90 gr</p><p class="price">125 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Sos de roșii</h3><p>690 gr</p><p class="price">59 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Roșii uscate în ulei</h3><p>270 gr</p><p class="price">125 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Lasagna Casa Rinaldi</h3><p>500 gr</p><p class="price">70 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Grissini cu usturoi</h3><p>125 gr</p><p class="price">39 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Grissini cu rozmarin</h3><p>125 gr</p><p class="price">39 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Grissini clasici</h3><p>125 gr</p><p class="price">39 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Taralli fenicul</h3><p>200 gr</p><p class="price">55 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Taralli ulei de măsline</h3><p>200 gr</p><p class="price">55 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Taralli usturoi și ardei iute</h3><p>200 gr</p><p class="price">55 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Paste Bronzo Tagliatelle</h3><p>500 gr</p><p class="price">53 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Paste Bronzo Farfale</h3><p>500 gr</p><p class="price">38 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Paste Bronzo Penne Rigate</h3><p>500 gr</p><p class="price">37 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Paste Bronzo Spaghetti</h3><p>500 gr</p><p class="price">37 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Paste CR Aroma de Crăciun</h3><p>500 gr</p><p class="price">83 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Paste CR Aroma Farfale</h3><p>500 gr</p><p class="price">113 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Sare de mare fino/grosso</h3><p>1 kg</p><p class="price">36 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Ore Liete Ricchi și Fibre</h3><p>250 gr</p><p class="price">63 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Ore Liete Fructe de Pădure</h3><p>240 gr</p><p class="price">56 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cuor di Fico</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Ferri di Cavallo</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cremoso al Pistacchio</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cuor di Amarena</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cioccorancia</h3><p>130 gr</p><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cremoso Limonatte</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Savoiardi Biscuiți Tiramisu</h3><p>500 gr</p><p class="price">140 Lei</p></div></div>
+      </div>
+    </section>
 
     <!-- ================= LOCAȚIE ================= -->
     <section id="locatie" class="menu-section">
@@ -1038,10 +699,8 @@ body {
     <section id="livrare" class="menu-section">
       <h2>Livrare</h2>
       <p>Comandă panini-urile tale preferate direct la tine acasă!</p>
-      <ul>
-        <p><strong>Zonă de livrare:</strong> Hîncești</p>
-        <p><strong>Taxă de livrare:</strong> 30 Lei (gratuit peste 300 Lei)</p>
-      </ul>
+      <p><strong>Zonă de livrare:</strong> Hîncești</p>
+      <p><strong>Taxă de livrare:</strong> 30 Lei (gratuit peste 300 Lei)</p>
       <p><strong>Telefon pentru comenzi:</strong> +373 78242489</p>
     </section>
 
@@ -1051,191 +710,313 @@ body {
       <p><strong>Adresă:</strong> Strada Chișinăului 10, Hîncești, Republica Moldova</p>
       <p><strong>Telefon:</strong> +373 78242489</p>
       <p><strong>Program:</strong> Luni, 08:00 – 15:30</p>
-      <p> Marți – Duminică, 08:00 – 21:00</p>
+      <p>Marți – Duminică, 08:00 – 21:00</p>
       <a href="https://www.instagram.com/paninidaarthuro/" class="btn">Instagram</a>
       <a href="https://www.facebook.com/profile.php?id=61575091597043" class="btn">Facebook</a>
       <a href="https://www.tiktok.com/@panini.da.arthuro" class="btn">TikTok</a>
     </section>
 
-    <!-- ================= RECENZII ================= -->
+    <!-- ================= RECENZII SLIDER ================= -->
     <section id="recenzii" class="menu-section">
+      <h2>Ce spun clienții noștri</h2>
+
+      <div class="reviews-slider-wrapper">
+        <button class="slider-btn prev" id="reviewPrev">&#8249;</button>
+        <button class="slider-btn next" id="reviewNext">&#8250;</button>
+
+        <div class="reviews-track" id="reviewsTrack">
+
+          <!-- Recenzie 1 -->
+          <div class="review-slide">
+            <div class="review-card-inner">
+              <div class="review-quote-icon">"</div>
+              <p class="review-text">Great Italian panini recipe and cozy atmosphere. I liked the careful service and tasty fresh panini. You can enjoy a Julius Meinl coffee here that I highly recommend.</p>
+              <div class="review-author">
+                <div class="review-avatar" style="background: #64014f;">A</div>
+                <div class="review-author-info">
+                  <div class="review-author-name">Ana Ț.</div>
+                  <div class="review-stars">★★★★★</div>
+                  <div class="review-source">Google Reviews</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recenzie 2 -->
+          <div class="review-slide">
+            <div class="review-card-inner">
+              <div class="review-quote-icon">"</div>
+              <p class="review-text">Personal amabil și foarte deschis, bucatele: ceva inedit ce te face să te mai întorci neapărat iar ambianta localului este relaxantă care este binevenită la finele unei zile încărcate !!!! Mulțumesc, revenim neapărat!!!</p>
+              <div class="review-author">
+                <div class="review-avatar" style="background: #3f6e3d;">IP</div>
+                <div class="review-author-info">
+                  <div class="review-author-name">Iulia P.</div>
+                  <div class="review-stars">★★★★★</div>
+                  <div class="review-source">Google Reviews</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recenzie 3 -->
+          <div class="review-slide">
+            <div class="review-card-inner">
+              <div class="review-quote-icon">"</div>
+              <p class="review-text">Aici am băut cea mai bună cafea băută vreodată în Republica Moldova, super mulțumit, bravo!</p>
+              <div class="review-author">
+                <div class="review-avatar" style="background: #1c286e;">GC</div>
+                <div class="review-author-info">
+                  <div class="review-author-name">Gabriel C.</div>
+                  <div class="review-stars">★★★★★</div>
+                  <div class="review-source">Google Reviews</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recenzie 4 -->
+          <div class="review-slide">
+            <div class="review-card-inner">
+              <div class="review-quote-icon">"</div>
+              <p class="review-text">Dacă dorești să savurezi o cafea bună într-un mediu plăcut, mergi la ei Ador această locație și serviciile oferite ❤️</p>
+              <div class="review-author">
+                <div class="review-avatar" style="background: #8b1a1a;">DN</div>
+                <div class="review-author-info">
+                  <div class="review-author-name">Donos N.</div>
+                  <div class="review-stars">★★★★★</div>
+                  <div class="review-source">Google Reviews</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recenzie 5 -->
+          <div class="review-slide">
+            <div class="review-card-inner">
+              <div class="review-quote-icon">"</div>
+              <p class="review-text">Pizza - 5 stele | Tiramisu - 5 stele | Ideal 🤌 …</p>
+              <div class="review-author">
+                <div class="review-avatar" style="background: #1a5276;">IV</div>
+                <div class="review-author-info">
+                  <div class="review-author-name">Ion V.</div>
+                  <div class="review-stars">★★★★★</div>
+                  <div class="review-source">Google Reviews</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div><!-- end reviews-track -->
+
+        <!-- Bara de progres -->
+        <div class="slider-progress-bar">
+          <div class="slider-progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Dots -->
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+    </section>
+
+    <!-- ================= FEEDBACK ================= -->
+    <section id="feedback" class="menu-section">
       <h2>Trimite un feedback</h2>
       <p>Dacă ai sugestii pentru îmbunătățirea localului sau a meniului nostru, ne poți scrie direct:</p>
       <p><strong>Email:</strong> darhuro@gmail.com</p>
       <a href="mailto:darhuro@gmail.com?subject=Recenzie%20Panini%20da%20Arthuro&body=Bună%20ziua%2C%20aș%20dori%20să%20las%20o%20recenzie%3A" class="btn">✉️ Trimite feedback-ul tău</a>
     </section>
 
+  </main>
 
-</main>
-
-  <!-- Buton SUS -->
   <button id="scrollTopBtn" title="Înapoi sus">↑</button>
 
-  
+  <script>
+    const searchInput = document.getElementById('finalSearch');
+    const resultsList = document.getElementById('final-results-list');
 
-
-<script>
-  const searchInput = document.getElementById('finalSearch');
-  const resultsList = document.getElementById('final-results-list');
-
-  function fărăDiacritice(str) {
-    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-  }
-
-  searchInput.addEventListener('input', function () {
-    const query = this.value.trim().toLowerCase();
-    const queryNorm = fărăDiacritice(query);
-    resultsList.innerHTML = '';
-
-    if (query.length < 2) {
-      resultsList.style.display = 'none';
-      return;
+    function fărăDiacritice(str) {
+      return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
     }
 
-    const cards = document.querySelectorAll('.menu-card');
-    const matches = [];
-
-    cards.forEach(card => {
-      const name = card.querySelector('h3');
-      const price = card.querySelector('.price');
-      const text = name ? fărăDiacritice(name.textContent) : '';
-
-      if (text.includes(queryNorm) && name) {
-        matches.push({
-          name: name.textContent.trim(),
-          price: price ? price.textContent.trim() : '',
-          card: card
+    searchInput.addEventListener('input', function () {
+      const query = this.value.trim().toLowerCase();
+      const queryNorm = fărăDiacritice(query);
+      resultsList.innerHTML = '';
+      if (query.length < 2) { resultsList.style.display = 'none'; return; }
+      const cards = document.querySelectorAll('.menu-card');
+      const matches = [];
+      cards.forEach(card => {
+        const name = card.querySelector('h3');
+        const price = card.querySelector('.price');
+        const text = name ? fărăDiacritice(name.textContent) : '';
+        if (text.includes(queryNorm) && name) {
+          matches.push({ name: name.textContent.trim(), price: price ? price.textContent.trim() : '', card: card });
+        }
+      });
+      if (matches.length === 0) {
+        resultsList.innerHTML = '<div class="res-item" style="justify-content:center;color:#999;">Niciun rezultat găsit.</div>';
+      } else {
+        matches.forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'res-item';
+          div.innerHTML = `<span>${item.name}</span><span style="color:#254b23;font-weight:bold;">${item.price}</span>`;
+          div.addEventListener('click', () => {
+            item.card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            item.card.style.outline = '3px solid #254b23';
+            setTimeout(() => item.card.style.outline = '', 2000);
+            resultsList.style.display = 'none';
+            searchInput.value = '';
+          });
+          resultsList.appendChild(div);
         });
       }
+      resultsList.style.display = 'block';
     });
 
-    if (matches.length === 0) {
-      resultsList.innerHTML = '<div class="res-item" style="justify-content:center;color:#999;">Niciun rezultat găsit.</div>';
-    } else {
-      matches.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'res-item';
-        div.innerHTML = `<span>${item.name}</span><span style="color:#254b23;font-weight:bold;">${item.price}</span>`;
-        div.addEventListener('click', () => {
-          item.card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          item.card.style.outline = '3px solid #254b23';
-          setTimeout(() => item.card.style.outline = '', 2000);
-          resultsList.style.display = 'none';
-          searchInput.value = '';
-        });
-        resultsList.appendChild(div);
-      });
-    }
-
-    resultsList.style.display = 'block';
-  });
-
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest('.search-wrapper-final')) {
-      resultsList.style.display = 'none';
-    }
-  });
-</script>
-
-  <script>
-    // Buton scroll top vizibil când se derulează
-    const scrollBtn = document.getElementById("scrollTopBtn");
-
-    window.onscroll = () => {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        scrollBtn.style.display = "block";
-      } else {
-        scrollBtn.style.display = "none";
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.search-wrapper-final')) {
+        resultsList.style.display = 'none';
       }
-    };
-
-    // Scroll la începutul paginii
-    scrollBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
 
-  <!-- FOOTER -->
+  <script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = () => {
+      scrollBtn.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "block" : "none";
+    };
+    scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  </script>
+
+  <script>
+    // ===== REVIEWS SLIDER =====
+    const SLIDE_DURATION = 10000; // 10 secunde
+    const TRANSITION_DURATION = 900; // ms
+
+    const track = document.getElementById('reviewsTrack');
+    const slides = track.querySelectorAll('.review-slide');
+    const dotsContainer = document.getElementById('sliderDots');
+    const progressFill = document.getElementById('progressFill');
+    const prevBtn = document.getElementById('reviewPrev');
+    const nextBtn = document.getElementById('reviewNext');
+
+    let currentIndex = 0;
+    let autoTimer = null;
+    let progressTimer = null;
+    const total = slides.length;
+
+    // Creăm dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Recenzie ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function updateDots(index) {
+      dotsContainer.querySelectorAll('.slider-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === index);
+      });
+    }
+
+    function startProgress() {
+      progressFill.style.transition = 'none';
+      progressFill.style.width = '0%';
+      // Forțăm reflow
+      void progressFill.offsetWidth;
+      progressFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
+      progressFill.style.width = '100%';
+    }
+
+    function goTo(index, userAction = false) {
+      currentIndex = (index + total) % total;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      updateDots(currentIndex);
+
+      if (userAction) {
+        clearTimeout(autoTimer);
+        scheduleNext();
+      }
+      startProgress();
+    }
+
+    function scheduleNext() {
+      clearTimeout(autoTimer);
+      autoTimer = setTimeout(() => {
+        goTo(currentIndex + 1);
+        scheduleNext();
+      }, SLIDE_DURATION);
+    }
+
+    prevBtn.addEventListener('click', () => goTo(currentIndex - 1, true));
+    nextBtn.addEventListener('click', () => goTo(currentIndex + 1, true));
+
+    // Suport swipe pe mobil
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        goTo(diff > 0 ? currentIndex + 1 : currentIndex - 1, true);
+      }
+    });
+
+    // Start
+    goTo(0);
+    scheduleNext();
+  </script>
+
+  <script>
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (!target) return;
+        window.scrollTo({ top: target.offsetTop - 40, behavior: "smooth" });
+      });
+    });
+  </script>
+
+  <script>
+    function actualizeazaStatusProgram() {
+      const acum = new Date();
+      const ziuaSaptamanii = acum.getDay();
+      const oraCurenta = acum.getHours() + (acum.getMinutes() / 60);
+      const statusElem = document.getElementById('status-program');
+      let esteDeschis = false;
+      let mesaj = "";
+      if (ziuaSaptamanii === 1) {
+        esteDeschis = oraCurenta >= 8 && oraCurenta < 15.5;
+        mesaj = esteDeschis ? "Deschis acum (Până la 15:30)" : "Închis acum (Deschidem Marți la 08:00)";
+      } else {
+        esteDeschis = oraCurenta >= 8 && oraCurenta < 21;
+        mesaj = esteDeschis ? "Deschis acum (Până la 21:00)" : "Închis acum (Deschidem la 08:00)";
+      }
+      if (esteDeschis) {
+        statusElem.innerHTML = `<span style="color:#2ecc71;font-size:18px;">●</span> <span style="color:white;">${mesaj}</span>`;
+      } else {
+        statusElem.innerHTML = `<span style="color:#e74c3c;font-size:18px;">●</span> <span style="color:#dcdcdc;">${mesaj}</span>`;
+      }
+    }
+    actualizeazaStatusProgram();
+    setInterval(actualizeazaStatusProgram, 60000);
+  </script>
+
   <footer style="background:#254b23;color:white;padding:15px;text-align:center;margin-top:20px;">
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
       <div>© <strong>Panini da Arthuro</strong> — Designed by Antonin.</div>
-      <div>
-        <p>Designer site - balanantonin8@gmail.com</p>
-      </div>
+      <div><p>Designer site - balanantonin8@gmail.com</p></div>
     </div>
   </footer>
 
-<script>
-  // Smooth scroll animat pentru link-urile din meniu
-  document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-    link.addEventListener("click", function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (!target) return;
-      const topPos = target.offsetTop - 40;
-      window.scrollTo({ top: topPos, behavior: "smooth" });
-    });
-  });
-</script>
-
   <div class="mobile-actions">
-  <a href="tel:+37378242489" class="action-item">
-    <span class="icon">📞</span> Sună
-  </a>
-  
-  <a href="https://wa.me/37378242489" target="_blank" class="action-item whatsapp">
-    <span class="icon">💬</span> Chat
-  </a>
-
-  <a href="#locatie" class="action-item">
-    <span class="icon">📍</span> Hartă
-  </a>
-
-  <a href="https://www.instagram.com/paninidaarthuro/" target="_blank" class="action-item">
-    <span class="icon">📸</span> Insta
-  </a>
-</div>
-
-
-<script>
-  function actualizeazaStatusProgram() {
-    const acum = new Date();
-    const ziuaSaptamanii = acum.getDay(); // 0 = Duminică, 1 = Luni ... 6 = Sâmbătă
-    const oraCurenta = acum.getHours() + (acum.getMinutes() / 60);
-    
-    const statusElem = document.getElementById('status-program');
-    let esteDeschis = false;
-    let mesaj = "";
-
-    if (ziuaSaptamanii === 1) { // LUNI
-      if (oraCurenta >= 8 && oraCurenta < 15.5) {
-        esteDeschis = true;
-        mesaj = "Deschis acum (Până la 15:30)";
-      } else {
-        mesaj = "Închis acum (Deschidem Marți la 08:00)";
-      }
-    } else { // MARȚI - DUMINICĂ
-      if (oraCurenta >= 8 && oraCurenta < 21) {
-        esteDeschis = true;
-        mesaj = "Deschis acum (Până la 21:00)";
-      } else {
-        mesaj = "Închis acum (Deschidem la 08:00)";
-      }
-    }
-
-    // Stilul vizual
-    if (esteDeschis) {
-      statusElem.innerHTML = `<span style="color: #2ecc71; font-size: 18px;">●</span> <span style="color: white;">${mesaj}</span>`;
-    } else {
-      statusElem.innerHTML = `<span style="color: #e74c3c; font-size: 18px;">●</span> <span style="color: #dcdcdc;">${mesaj}</span>`;
-    }
-  }
-
-  // Rulăm funcția la încărcarea paginii
-  actualizeazaStatusProgram();
-  // Actualizăm la fiecare minut în caz că utilizatorul stă mult pe site
-  setInterval(actualizeazaStatusProgram, 60000);
-</script>
+    <a href="tel:+37378242489" class="action-item"><span class="icon">📞</span> Sună</a>
+    <a href="https://wa.me/37378242489" target="_blank" class="action-item whatsapp"><span class="icon">💬</span> Chat</a>
+    <a href="#locatie" class="action-item"><span class="icon">📍</span> Hartă</a>
+    <a href="https://www.instagram.com/paninidaarthuro/" target="_blank" class="action-item"><span class="icon">📸</span> Insta</a>
+  </div>
 
 </body>
 </html>
