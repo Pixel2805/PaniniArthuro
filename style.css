@@ -155,7 +155,6 @@ main { padding: 12px 0; }
 footer {
   border-top: 1px solid #eee;
   padding: 15px 0;
-  color: var(--muted);
   font-size: 12px;
   background: #254b23;
   color: white;
@@ -183,7 +182,6 @@ footer {
 .search-wrapper-final {
   display: block;
   position: relative;
-  vertical-align: middle;
   margin: 10px auto;
   width: 90%;
   max-width: 200px;
@@ -681,12 +679,9 @@ footer {
     width: 150px;
     padding: 6px 12px;
   }
-  
+
   .slider-btn {
     display: flex;
-  }
-  
-  .slider-btn {
     width: 36px;
     height: 36px;
     font-size: 16px;
