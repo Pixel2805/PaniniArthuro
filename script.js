@@ -144,23 +144,25 @@ document.querySelectorAll('nav a[href^="#"]').forEach(link => {
 // ===== STATUS PROGRAM (DESCHIS/ÎNCHIS) =====
 function actualizeazaStatusProgram() {
   const acum = new Date();
-  const ziuaSaptamanii = acum.getDay();
   const oraCurenta = acum.getHours() + (acum.getMinutes() / 60);
   const statusElem = document.getElementById('status-program');
-  let esteDeschis = false;
-  let mesaj = "";
-  if (ziuaSaptamanii === 1) {
-    esteDeschis = oraCurenta >= 8 && oraCurenta < 15.5;
-    mesaj = esteDeschis ? "Deschis acum (Până la 15:30)" : "Închis acum (Deschidem Marți la 08:00)";
-  } else {
-    esteDeschis = oraCurenta >= 8 && oraCurenta < 21;
-    mesaj = esteDeschis ? "Deschis acum (Până la 21:00)" : "Închis acum (Deschidem la 08:00)";
-  }
-  if (esteDeschis) {
-    statusElem.innerHTML = `<span style="color:#2ecc71;font-size:18px;">●</span> <span style="color:white;">${mesaj}</span>`;
-  } else {
-    statusElem.innerHTML = `<span style="color:#e74c3c;font-size:18px;">●</span> <span style="color:#dcdcdc;">${mesaj}</span>`;
+  
+  // Program: 08:00 - 23:00 (23:00 este ora de închidere, deci < 23)
+  const esteDeschis = oraCurenta >= 8 && oraCurenta < 23;
+  
+  const mesaj = esteDeschis 
+    ? "Deschis acum (Până la 23:00)" 
+    : "Închis acum (Deschidem mâine la 08:00)";
+
+  if (statusElem) {
+    if (esteDeschis) {
+      statusElem.innerHTML = `<span style="color:#2ecc71;font-size:18px;">●</span> <span style="color:white;">${mesaj}</span>`;
+    } else {
+      statusElem.innerHTML = `<span style="color:#e74c3c;font-size:18px;">●</span> <span style="color:#dcdcdc;">${mesaj}</span>`;
+    }
   }
 }
+
+
 actualizeazaStatusProgram();
 setInterval(actualizeazaStatusProgram, 60000);
