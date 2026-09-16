@@ -28,9 +28,9 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
   margin: 0;
-  /* O singură imagine de fundal, fără să se repete, ajustată complet pe ecran */
+  /* Fundal fix pe ecran, centrat, care acoperă frumos fără spații goale la scroll */
   background: 
-    linear-gradient(rgba(37, 75, 35, 0.253), rgba(37, 75, 35, 0.274)), 
+    linear-gradient(rgba(37, 75, 35, 0.247), rgba(37, 75, 35, 0.267)), 
     url('images/bg_panini.jpg') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
