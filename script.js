@@ -326,24 +326,24 @@
   // ---------------------------------------------------------
 
   function actualizeazaStatusProgram() {
-    const acum = new Date();
-    const ziua = acum.getDay();
-    const oraCurenta = acum.getHours() + acum.getMinutes() / 60;
-    const statusElem = document.getElementById("status-program");
-    if (!statusElem) return;
+  const acum = new Date();
+  const oraCurenta = acum.getHours() + acum.getMinutes() / 60;
+  const statusElem = document.getElementById("status-program");
+  if (!statusElem) return;
 
-    const orarInchidere = ziua === 1 ? 15.5 : 22;
-    const esteDeschis = oraCurenta >= 8 && oraCurenta < orarInchidere;
-    const oraFormatata = ziua === 1 ? "15:30" : "22:00";
+  const oraDeschidere = 8;
+  const orarInchidere = 22.5; // 22:30
 
-    const mesaj = esteDeschis
-      ? `Deschis acum (până la ${oraFormatata})`
-      : "Închis acum (deschidem la 08:00)";
+  const esteDeschis = oraCurenta >= oraDeschidere && oraCurenta < orarInchidere;
 
-    statusElem.innerHTML = esteDeschis
-      ? `<span style="color:#2ecc71;font-size:16px;">●</span> <span style="color:white;">${mesaj}</span>`
-      : `<span style="color:#e74c3c;font-size:16px;">●</span> <span style="color:#dcdcdc;">${mesaj}</span>`;
-  }
+  const mesaj = esteDeschis
+    ? "Deschis acum (până la 22:30)"
+    : "Închis acum (deschidem la 08:00)";
+
+  statusElem.innerHTML = esteDeschis
+    ? `<span style="color:#2ecc71;font-size:16px;">●</span> <span style="color:white;">${mesaj}</span>`
+    : `<span style="color:#e74c3c;font-size:16px;">●</span> <span style="color:#dcdcdc;">${mesaj}</span>`;
+}
 
   // ---------------------------------------------------------
   // Inițializare
