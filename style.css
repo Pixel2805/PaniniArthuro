@@ -28,11 +28,11 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
   margin: 0;
-  /* Fundal fix pe ecran, centrat, care acoperă frumos fără spații goale la scroll */
+  /* Fundal modificat: poza completă, adaptată pe lățime și repetată controlat în jos */
   background: 
-    linear-gradient(rgba(37, 75, 35, 0.247), rgba(37, 75, 35, 0.267)), 
-    url('images/bg_panini.jpg') no-repeat center center fixed;
-  background-size: cover;
+    linear-gradient(rgba(37, 75, 35, 0.233), rgba(37, 75, 35, 0.26)), 
+    url('images/bg_panini.jpg') repeat center top;
+  background-size: 100% auto;
   min-height: 100vh;
   color: var(--text);
   line-height: 1.6;
