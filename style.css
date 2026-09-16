@@ -31,7 +31,7 @@ body {
   /* Fundal modificat: poza completă, adaptată pe lățime și repetată controlat în jos */
   background: 
     linear-gradient(rgba(37, 75, 35, 0.233), rgba(37, 75, 35, 0.26)), 
-    url('images/bg_panini.jpg') repeat center top;
+    url('images/bg_paninidefault.jpg') repeat center top;
   background-size: 100% auto;
   min-height: 100vh;
   color: var(--text);
