@@ -31,7 +31,7 @@ body {
   /* Fundal fix pe ecran, centrat, care acoperă frumos fără spații goale la scroll */
   background: 
     linear-gradient(rgba(37, 75, 35, 0.247), rgba(37, 75, 35, 0.267)), 
-    url('images/bg_paninidefault.jpg') no-repeat center center fixed;
+    url('images/bgpizzatel.jpg') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
   color: var(--text);
