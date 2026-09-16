@@ -586,13 +586,31 @@ footer strong { color: white; }
    MEDIA QUERIES
    ========================================================= */
 
-/* Fundal optimizat exclusiv pentru TELEFON (ecrane sub 600px) */
+/* Fundal optimizat exclusiv pentru TELEFON (iPhone 7 → iPhone 17 Pro Max) */
 @media only screen and (max-width: 599px) {
   body {
     background: 
       linear-gradient(rgba(37, 75, 35, 0.199), rgba(37, 75, 35, 0.171)), 
-      url('images/bg_paninitel.jpg') no-repeat center center fixed;
-    background-size: contain;
+      url('images/bg_paninidefault.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #254b23; /* umple eventualele margini pe ecrane foarte înalte */
+  }
+}
+
+/* Ajustare specifică pentru iPhone-uri foarte înalte (raport ~19.5:9)
+   iPhone 12/13/14/15/16/17 (inclusiv Pro Max) */
+@media only screen and (max-width: 599px) and (min-aspect-ratio: 9/19) {
+  body {
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+/* Ajustare pentru iPhone-uri mai vechi (raport 16:9 — iPhone 7, 8, SE) */
+@media only screen and (max-width: 599px) and (max-aspect-ratio: 9/16) {
+  body {
+    background-position: center center;
+    background-size: cover;
   }
 }
 
