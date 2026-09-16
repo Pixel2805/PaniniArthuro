@@ -25,14 +25,14 @@
 
 html { scroll-behavior: smooth; }
 
+/* Fundal implicit (pentru Desktop / ecrane mari) */
 body {
   font-family: var(--font-body);
   margin: 0;
-  /* Fundal modificat: poza completă, adaptată pe lățime și repetată controlat în jos */
   background: 
-    linear-gradient(rgba(37, 75, 35, 0.233), rgba(37, 75, 35, 0.26)), 
-    url('images/bg_panini.jpg') repeat center top;
-  background-size: 100% auto;
+    linear-gradient(rgba(37, 75, 35, 0.226), rgba(37, 75, 35, 0.247)), 
+    url('images/bg_paninidefault.jpg') no-repeat center center fixed;
+  background-size: cover;
   min-height: 100vh;
   color: var(--text);
   line-height: 1.6;
@@ -585,6 +585,16 @@ footer strong { color: white; }
 /* =========================================================
    MEDIA QUERIES
    ========================================================= */
+
+/* Fundal optimizat exclusiv pentru TELEFON (ecrane sub 600px) */
+@media only screen and (max-width: 599px) {
+  body {
+    background: 
+      linear-gradient(rgba(37, 75, 35, 0.199), rgba(37, 75, 35, 0.171)), 
+      url('images/bg_paninitel.jpg') no-repeat center center fixed;
+    background-size: contain;
+  }
+}
 
 @media only screen and (min-width: 600px) {
   body { padding-bottom: 0; }
