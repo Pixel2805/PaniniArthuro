@@ -25,13 +25,13 @@
 
 html { scroll-behavior: smooth; }
 
+/* ===== FUNDAL DESKTOP (O singură imagine fixă) ===== */
 body {
   font-family: var(--font-body);
   margin: 0;
-  /* Fundal fix pe ecran, centrat, care acoperă frumos fără spații goale la scroll */
   background: 
-    linear-gradient(rgba(37, 75, 35, 0.247), rgba(37, 75, 35, 0.267)), 
-    url('images/bgpizzatel.jpg') no-repeat center center fixed;
+    linear-gradient(rgba(37, 75, 35, 0.308), rgba(37, 75, 35, 0.315)), 
+    url('images/bgpizzapc.jpg') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
   color: var(--text);
@@ -585,6 +585,17 @@ footer strong { color: white; }
 /* =========================================================
    MEDIA QUERIES
    ========================================================= */
+
+/* ===== FUNDAL TELEFON (Imaginea se repetă ca un model / tapet) ===== */
+@media only screen and (max-width: 599px) {
+  body {
+    background: 
+      linear-gradient(rgba(37, 75, 35, 0.281), rgba(37, 75, 35, 0.24)), 
+      url('images/bgpizzatel.jpg') repeat center top;
+    background-size: 320px auto; /* Lățimea la care se repetă imaginea pe orizontală pe ecran îngust */
+    background-attachment: scroll;
+  }
+}
 
 @media only screen and (min-width: 600px) {
   body { padding-bottom: 0; }
