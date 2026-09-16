@@ -1,5 +1,5 @@
 /* =========================================================
-   Panini da Arthuro — CSS Complet (Design Modern & Background)
+   Panini da Arthuro — CSS Complet
    ========================================================= */
 
 :root {
@@ -28,11 +28,12 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
   margin: 0;
-  /* Aici se încarcă imaginea ta de fundal cu un filtru semi-transparent verde peste ea */
+  /* O singură imagine de fundal, fără să se repete, ajustată complet pe ecran */
   background: 
-    linear-gradient(rgba(37, 75, 35, 0.315), rgba(37, 75, 35, 0.445)), 
+    linear-gradient(rgba(37, 75, 35, 0.253), rgba(37, 75, 35, 0.274)), 
     url('images/bg_panini.jpg') no-repeat center center fixed;
   background-size: cover;
+  min-height: 100vh;
   color: var(--text);
   line-height: 1.6;
   padding-bottom: 70px;
@@ -304,8 +305,8 @@ main { padding: 24px 0 12px; }
 .menu-row:first-child { padding-top: 16px; }
 
 .menu-row .thumb {
-  width: 88px;   /* Am mărit lățimea de la 64px la 88px */
-  height: 88px;  /* Am mărit înălțimea de la 64px la 88px */
+  width: 88px;
+  height: 88px;
   border-radius: var(--radius-sm);
   object-fit: cover;
   flex-shrink: 0;
