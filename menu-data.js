@@ -721,7 +721,7 @@ const MENU_DATA = [
             "img": null
           },
           {
-            "name": "Burn 250 ml",
+            "name": "RedBull 250 ml",
             "details": [],
             "price": "45 Lei",
             "img": null
