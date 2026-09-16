@@ -587,14 +587,14 @@ footer strong { color: white; }
    ========================================================= */
 
 /* Fundal optimizat pentru TELEFOANE (iPhone 7 → iPhone 17 Pro Max)
-   Imaginea se scalează după ÎNĂLȚIMEA ecranului (auto 100vh),
-   astfel încât să se vadă toată pe verticală, centrată. */
+   Imaginea se REPETĂ ca un pattern pe tot ecranul,
+   astfel încât nu mai apar zone goale (bej). */
 @media only screen and (max-width: 599px) {
   body {
     background: 
       linear-gradient(rgba(37, 75, 35, 0.15), rgba(37, 75, 35, 0.15)), 
-      url('images/bg_paninitel.jpg') no-repeat center center fixed;
-    background-size: auto 100vh;
+      url('images/bg_paninitel.jpg') repeat center center fixed;
+    background-size: 100% auto;
     background-color: #254b23;
   }
 }
