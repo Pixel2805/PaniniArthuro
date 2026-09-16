@@ -3,337 +3,132 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Panini da Arthuro</title>
-  <meta name="description" content="Panini da Arthuro — Panini proaspete, ingrediente locale și gust autentic.">
+  <title>Panini da Arthuro — Hîncești</title>
+  <meta name="description" content="Panini da Arthuro — panini, pizza și paste proaspete, cu ingrediente italiene, în Hîncești. Meniu complet și recenzii.">
+  <meta name="theme-color" content="#254b23">
+
+  <link rel="canonical" href="https://paninidaarthuro.md/">
+  <meta property="og:type" content="restaurant.menu">
+  <meta property="og:title" content="Panini da Arthuro — Hîncești">
+  <meta property="og:description" content="Panini, pizza și paste proaspete, cu ingrediente italiene și gust autentic.">
+  <meta property="og:image" content="images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Panini da Arthuro",
+    "image": "images/logo.png",
+    "servesCuisine": "Italiană",
+    "priceRange": "60–300 Lei",
+    "telephone": "+37378242489",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Strada Chișinăului 10",
+      "addressLocality": "Hîncești",
+      "addressCountry": "MD"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "08:00", "closes": "15:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "08:00", "closes": "22:00" }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/paninidaarthuro/",
+      "https://www.facebook.com/profile.php?id=61575091597043",
+      "https://www.tiktok.com/@panini.da.arthuro"
+    ]
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#meniu-dinamic">Sari la meniu</a>
 
- <header>
+  <header>
     <div class="container">
-      
       <div class="brand">
         <img src="images/logo.png" alt="Panini da Arthuro - logo">
         <div>
           <h1>Panini da Arthuro</h1>
-          <p class="lead">Panini, pizza și paste – proaspete, cu ingrediente italiene și gust autentic.</p>
-          <div id="status-program" style="margin-top: 10px; font-weight: bold; font-size: 14px;"></div>
-          <nav>
-          | <a href="#pizza">Pizza</a>
-          | <a href="#paste">Paste</a>|
-          <a href="#meniu">Panini</a>|
-          <a href="#deserturi">Desert</a>|
-          <a href="#bauturi">Băuturi</a>|
-          <a href="#produse-italiene">Produse-Italiene</a>|
-          <a href="#alte-produse">Alte-Produse-Italiene</a>|
-          <a href="#locatie">Locație</a>|
-          <a href="#contact">Contact</a>|
-          <a href="#recenzii">Recenzii</a>|
-          <a href="#feedback">Feedback</a>|
+          <p class="lead">Panini, pizza și paste, proaspete — ingrediente italiene, gust autentic.</p>
+          <div id="status-program" aria-live="polite"></div>
+        </div>
+      </div>
 
-          <div class="search-wrapper-final">
-    <div class="search-pill-box">
-        <input type="text" id="finalSearch" placeholder="Căutare..." autocomplete="off">
-        <span>🔍</span>
-    </div>
-    <div id="final-results-list"></div>
-</div>
-        </nav>
-
+      <div class="header-tools">
+        <div class="search-wrapper">
+          <div class="search-pill">
+            <input type="text" id="finalSearch" placeholder="Caută în meniu..." autocomplete="off">
+            <span aria-hidden="true">🔍</span>
+          </div>
+          <div id="final-results-list" class="search-results"></div>
         </div>
       </div>
     </div>
+
+    <nav class="category-nav" aria-label="Categorii meniu">
+      <div class="category-nav-scroller" id="categoryNavScroller"></div>
+    </nav>
   </header>
 
-  <main class="container">
-    
-    <!-- ================= PIZZA ================= -->
-    <section id="pizza" class="menu-section">
-      <h2>PIZZA</h2>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Casei</h3><p>Sos de roșii, mascarpone, prosciutto Parma, parmezan, rucola.</p><p class="price">185 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Quatro Staggioni</h3><p>Pizza Mortadella, Pizza Diavola, Pizza Siciliană, Pizza Carbonara.</p><p class="price">190 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Mortadella</h3><p>Sos alb, mozzarella, mortadella , sos pesto, roșii uscate în ulei.</p><p class="price">185 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Foccacia Rosso</h3><p></p><p class="price">75 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Foccacia Bianca</h3><p></p><p class="price">60 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Gorgonzola e Pere</h3><p>Mozzarella, gorgonzola, pere, nuci.</p><p class="price">160 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Petrocub</h3><p>Sos de roșii, mozzarella, șold de pui, măsline kalamata, cremă de brânză.</p><p class="price">150 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Prosciutto i Funghi</h3><p>Sos de roșii, mozzarella, prosciutto cotto, ciuperci.</p><p class="price">155 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Salsiccia e Funghi</h3><p>Sos de roșii, mozzarella, tocătură porc-vită, ciuperci.</p><p class="price">160 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Capriciossa</h3><p>Sos de roșii, mozzarella, prosciutto cotto, măsline, anghinare, ciuperci.</p><p class="price">158 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Diavola</h3><p>Sos de roșii, mozzarella, salam picant.</p><p class="price">150 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Salami</h3><p>Sos de roșii, mozzarella, salam măturat, salam Milano, Prosciutto Cotto.</p><p class="price">170 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Bufalina</h3><p>Sos de roșii, mozzarella de bivoliță, rucola, roșii cherry.</p><p class="price">170 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Quatro Formaggi</h3><p>Sos alb, cașcaval brie, gorgonzola, parmezan, pecorino.</p><p class="price">175 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Vegetariană</h3><p>Sos de roșii, mozzarella, dovlecel, vânătă coaptă, ardei kapia.</p><p class="price">155 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Siciliana</h3><p>Sos de roșii, mozzarella, acchiughe, capere, măsline, oregano.</p><p class="price">155 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Marinara</h3><p>Sos de roșii, usturoi, oregano, ulei de măsline.</p><p class="price">140 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Margheritta</h3><p>Sos de roșii, mozzarella.</p><p class="price">135 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Panceta e Granna</h3><p>Mozzarella, Pancetta, Parmezan.</p><p class="price">160 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Tonno</h3><p>Sos de roșii, mozzarella, ton, ceapă roșie, măsline.</p><p class="price">160 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Kids</h3><p>Sos de roșii, mozzarella.</p><p class="price">135 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Carbonara</h3><p>Sos de roșii, Mozzarella, Panceta, Parmezan, Sos carbonara.</p><p class="price">170 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pizza Nutella</h3><p>Nutella, Sos ciocolată , Zahăr pudră.</p><p class="price">135 Lei</p></div></div>
-      </div>
-    </section>
-
-    <!-- ================= PASTE ================= -->
-    <section id="paste" class="menu-section">
-      <h2>Pasta Fresca</h2>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="menu-card-content"><h3>Pasta Carbonara</h3><p><strong>320 gr.</strong></p><p>Spaghetti, Guancialle, Parmigianno, Gălbenuș de ou pasteurizat.</p><p class="price">149 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pasta Bolognese</h3><p><strong>320 gr.</strong></p><p>Spaghetti, Sos Bolognese, Parmigianno.</p><p class="price">139 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pasta Amatriciana</h3><p><strong>320 gr.</strong></p><p>Spaghetti, Sos de Roșii, Guancialle, Ceapă, Parmigianno.</p><p class="price">140 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pasta Prosciutto</h3><p><strong>320 gr.</strong></p><p>Spaghetti, Prosciutto Cotto, Ciuperci, Frișcă, Parmezan.</p><p class="price">145 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pasta Pomodoro</h3><p><strong>290 gr.</strong></p><p>Spaghetti, salsa pomodoro, parmezan.</p><p class="price">119 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pasta cu Creveți</h3><p><strong>320 gr.</strong></p><p>Spaghetti, Creveți, Salsa pomodoro, Parmezan.</p><p class="price">160 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pasta cu Fructe de Mare</h3><p><strong>290 gr.</strong></p><p>Spaghetti, Mix de fructe de mare, Sos de roșii, Usturoi, Pătrunjel</p><p class="price">190 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pasta Quatro Formaggi</h3><p><strong>320 gr.</strong></p><p>Spaghetti, Gorgonzola, Brie, Parmezan, Primo Sale, Frișcă.</p><p class="price">160 Lei</p></div></div>
-    </section>
-
-    <!-- ================= PANINI ================= -->
-    <section id="meniu" class="menu-section">
-      <h2>Panini</h2>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="menu-card-content"><h3>Panini Parma</h3><p>Prosciutto Parma-24 luni , cremă de brânză, sos pesto, verdeață.</p><p class="price">130 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Panini Milano</h3><p>Salam Milano, cremă de brânză, sos pesto, verdeață.</p><p class="price">120 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Panini Bologna</h3><p>Mortadella Bologna, cremă de brânză, sos pesto, roșii uscate în ulei.</p><p class="price">125 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Panini Hînceşti</h3><p>Prosciutto Cotto, cremă de brânză, sos pesto, verdeață.</p><p class="price">120 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Panini Picante</h3><p>Salam Picant, cremă de brânză, sos pesto, roșii uscate în ulei.</p><p class="price">120 Lei</p></div></div>
-      </div>
-    </section>
-
-    <!-- ================= DESERTURI ================= -->
-    <section id="deserturi" class="menu-section">
-      <h2>Deserturi</h2>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="menu-card-content"><h3>Tiramisu de casă</h3><p class="price">60 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cheesecake</h3><p class="price">70 Lei</p></div></div>
-      </div>
-    </section>
-
-    <!-- ================= BĂUTURI ================= -->
-    <section id="bauturi" class="menu-section">
-      <h2>Băuturi fierbinți</h2>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="menu-card-content"><h3>Esspresso 30 ml</h3><p>Decaf. - 37 Lei</p><p class="price">35 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cappuccino 180 ml</h3><p>decaf. - 42 Lei</p><p class="price">40 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Latte 300 ml</h3><p>decaf. - 47 Lei</p><p class="price">45 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Esspresso Machiato 40 ml</h3><p>decaf. - 39 Lei</p><p class="price">37 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Esspresso Doppio 50 ml</h3><p>decaf. - 52 Lei</p><p class="price">50 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Americano</h3><p>decaf. - 37 Lei</p><p class="price">35 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Ristretto</h3><p>decaf. - 37 Lei</p><p class="price">35 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Flat White 180 ml</h3><p class="price">60 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Ceai infuzie 300 ml</h3><p>(Verde, Ierburi, Negru, Fructe)</p><p class="price">33 Lei</p></div></div>
-
-      </div>
-      <h2>Cocktailuri fără alcool</h2>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="menu-card-content"><h3>Limonadă</h3><p>Mango, Maracuia, Aloe Vera cu Măr, Căpșuni și Cocos</p><p class="price">65 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Aperol N/A</h3><p class="price">110 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Lime espresso</h3><p class="price">70 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Caramel Ice Latte</h3><p class="price">65 Lei</p></div></div>
-      </div>
-      <h3>Clasice</h3>
-        <div class="menu-grid">
-          <div class="menu-card"><div class="menu-card-content"><h3>Aperol</h3><p>Aperol, Prosecco.</p><p class="price">110 Lei</p></div></div>
-          <div class="menu-card"><div class="menu-card-content"><h3>Hugo</h3><p>Prosecco, Sirop Floare de Soc, mentă, apă minerală.</p><p class="price">110 Lei</p></div></div>
-          <div class="menu-card"><div class="menu-card-content"><h3>Gin Tonic</h3><p>Taqueray, apă tonică.</p><p class="price">110 Lei</p></div></div>
-          <div class="menu-card"><div class="menu-card-content"><h3>Pink Gin Tonic</h3><p>Tanqueray, apă tonică, grenadine.</p><p class="price">120 Lei</p></div></div>
-          <div class="menu-card"><div class="menu-card-content"><h3>Mai Thai</h3><p>White Rum, Black Rum, suc ananas, lămâie.</p><p>White Rum, Black Rum, suc ananas, lămâie</p><p class="price">140 Lei</p></div></div>
-          <div class="menu-card"><div class="menu-card-content"><h3>Negroni</h3><p>Martini Rosso, Campari, Tanqueray.</p><p class="price">140 Lei</p></div></div>
-          <div class="menu-card"><div class="menu-card-content"><h3>Espresso Martini</h3><p>Vodka, liqueur cafea, espresso.</p><p class="price">130 Lei</p></div></div>
-        </div>
-        
-        <h3>Cocktailurile Casei</h3>
-        <div class="menu-grid">
-          <div class="menu-card"><div class="menu-card-content"><h3>Bere Draft</h3><p>Pilsner Urquell</p><p>330 ml. - 50 Lei</p><p class="price">50 Lei</p></div></div>
-          <div class="menu-card"><div class="menu-card-content"><h3>Prosecco Draft</h3><p>200 ml. - 70 Lei</p><p class="price">70 Lei</p></div></div>
-          <div class="menu-card"><div class="menu-card-content"><h3>The Italia</h3><p>Gin, liquer piersică, lămâie , portocală, albuș pasteurizat.</p><p class="price">130 Lei</p></div></div>
-          <div class="menu-card"><div class="menu-card-content"><h3>Italian Amante</h3><p>Vodka, zmeură, lămâie, albuș  pasteurizat.</p><p class="price">130 Lei</p></div></div>
-          <div class="menu-card"><div class="menu-card-content"><h3>Italian Porn Star</h3><p>Vodka, piersică, suc ananas, lămâie, fructul pasiunii, albuș pasteurizat.</p><p class="price">130 Lei</p></div></div>
-          <div class="menu-card"><div class="menu-card-content"><h3>Italian Kiss</h3><p>Gin, fructe de pădure, suc ananas, lămâie, albuș pasteurizat.</p><p class="price">130 Lei</p></div></div>
-          <div class="menu-card"><div class="menu-card-content"><h3>Italian Cloud</h3><p>Gin, violet, triple sec, lămâie, albuș pasteurizat.</p><p class="price">130 Lei</p></div></div>
-        </div>
-
-      <h2>Băuturi nealcoolice la sticlă</h2>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="menu-card-content"><h3>Coca-Cola 250 ml</h3><p>Coca-Cola Zero 250 ml</p><p class="price">30 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Fanta 250 ml</h3><p class="price">30 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Sprite 250 ml</h3><p class="price">30 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Fuzetea piersică 500 ml</h3><p class="price">35 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Fuzetea fructe de pădure 500 ml</h3><p class="price">35 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Fuzetea afine 500 ml</h3><p class="price">35 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Burn 250 ml</h3><p class="price">45 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Pulpy Piersici 330 ml</h3><p class="price">35 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Pulpy Grapefruit 330 ml</h3><p class="price">35 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Pulpy Portocală 330 ml</h3><p class="price">35 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Mini 250 ml</h3><p class="price">25 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Schweppes Mojito 250 ml</h3><p class="price">30 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Schweppes Pink Tonic 250 ml</h3><p class="price">30 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Schweppes Indian Tonic 250 ml</h3><p class="price">30 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>San Benedetto 500 ml</h3><p>Plată / Minerală</p><p class="price">25 Lei</p></div></div>
-      </div>
-      <h2>Băuturi alcoolice la sticlă</h2>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="menu-card-content"><h3>Prosecco DOG 0.75L</h3><p class="price">250 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Prosecco Picini 0.75L</h3><p class="price">270 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Birra Moretti 0.3L</h3><p class="price">55 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Corona Extra 0.3L</h3><p class="price">55 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Corona Cero 0.3L</h3><p class="price">55 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Birra Moretti 0.3 N/A</h3><p class="price">55 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Peroni 0.3L</h3><p class="price">55 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pinot Grigio 1L</h3><p class="price">360 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Vin roșu Il Palazzo - Chianti 0.75L</h3><p class="price">340 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Asti Martini 0.75L</h3><p class="price">300 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Prosecco Flumen Extra Dry 0.75L</h3><p class="price">240 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Prosecco Maestro 1.5L</h3><p class="price">500 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Moet & Chandon Brut Imperial</h3><p class="price">1450 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Moet & Chandon Imperial </h3><p class="price">1350 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Maestro Superiore Brut</h3><p class="price">290 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Maestro Superiore Extra Dry</h3><p class="price">290 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Foss Marai Superiore di Cartizze</h3><p class="price">640 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Foss Marai Strada di Guia</h3><p class="price">435 Lei</p></div></div>
-        
-      </div>
-    </section>
-
-    <!-- ================= PRODUSE ITALIENE ================= -->
-    <section id="produse-italiene" class="menu-section">
-      <h2>Produse Italiene</h2>
-      <div class="menu-grid">
-        <div class="menu-card"><img src="images/diparma.jpg" alt="Prosciutto di Parma"><div class="menu-card-content"><h3>Prosciutto di Parma</h3><p>Preț per 100 gr</p><p class="price">74.30 Lei</p></div></div>
-        <div class="menu-card"><img src="images/prosciuttocotto.jpg" alt="Prosciutto Cotto Naturalis"><div class="menu-card-content"><h3>Prosciutto Cotto Naturalis</h3><p>Preț per 100 gr</p><p class="price">43.80 Lei</p></div></div>
-        <div class="menu-card"><img src="images/puntaanca.jpg" alt="Bresaola Punta Anca"><div class="menu-card-content"><h3>Bresaola Punta Anca</h3><p>Preț per 100 gr</p><p class="price">114.5 Lei</p></div></div>
-        <div class="menu-card"><img src="images/guancialli.jpg" alt="Guancialli"><div class="menu-card-content"><h3>Guancialli</h3><p>Preț per 100 gr</p><p class="price">62.00 Lei</p></div></div>
-        <div class="menu-card"><img src="images/pancettainhartie.jpg" alt="Pancetta învârtită"><div class="menu-card-content"><h3>Pancetta învârtită</h3><p>Preț per 100 gr</p><p class="price">64.40 Lei</p></div></div>
-        <div class="menu-card"><img src="images/salammaturat.jpg" alt="Salam măturat"><div class="menu-card-content"><h3>Salam maturat</h3><p>Preț per 100 gr</p><p class="price">78.30 Lei</p></div></div>
-        <div class="menu-card"><img src="images/vetricinapiccante.jpg" alt="Vetricina Piccante"><div class="menu-card-content"><h3>Vetricina Piccante</h3><p>Preț per 100 gr</p><p class="price">48.90 Lei</p></div></div>
-        <div class="menu-card"><img src="images/salammilano.jpg" alt="Salam Milano"><div class="menu-card-content"><h3>Salam Milano</h3><p>Preț per 100 gr</p><p class="price">48.90 Lei</p></div></div>
-        <div class="menu-card"><img src="images/Mortadellaanticabologna.jpg" alt="Mortadela Bologna"><div class="menu-card-content"><h3>Mortadela Bologna</h3><p>Preț per 100 gr</p><p class="price">49.80 Lei</p></div></div>
-        <div class="menu-card"><img src="images/scamoza.jpg" alt="Scamorza afumată"><div class="menu-card-content"><h3>Scamorza afumată</h3><p>Preț per 100 gr</p><p class="price">54.00 Lei</p></div></div>
-        <div class="menu-card"><img src="images/parmigiano24luni.jpg" alt="Parmigiano 24 luni"><div class="menu-card-content"><h3>Parmigiano 24 luni</h3><p>Preț per 100 gr</p><p class="price">79.00 Lei</p></div></div>
-        <div class="menu-card"><img src="images/pecorino.jpg" alt="Fioretto Pecorino"><div class="menu-card-content"><h3>Fioretto Pecorino</h3><p>Preț per 100 gr</p><p class="price">86.00 Lei</p></div></div>
-        <div class="menu-card"><img src="images/primosale.jpg" alt="Primo Sale"><div class="menu-card-content"><h3>Primo Sale</h3><p>Preț per 100 gr</p><p class="price">66.00 Lei</p></div></div>
-        <div class="menu-card"><img src="images/gorgonzolacolombodop.jpg" alt="Gorgonzola Colombo DOP"><div class="menu-card-content"><h3>Gorgonzola Colombo DOP</h3><p>Preț per 100 gr</p><p class="price">56.50 Lei</p></div></div>
-        <div class="menu-card"><img src="images/straciatella.jpg" alt="Stracciatella"><div class="menu-card-content"><h3>Stracciatella</h3><p>Preț per 150 gr</p><p class="price">88.00 Lei</p></div></div>
-        <div class="menu-card"><img src="images/mozzarella125gr.jpg" alt="Mozzarella"><div class="menu-card-content"><h3>Mozzarella</h3><p>Preț per 125 gr</p><p class="price">42.00 Lei</p></div></div>
-        <div class="menu-card"><img src="images/mascarpone250gr.jpg" alt="Mascarpone"><div class="menu-card-content"><h3>Mascarpone</h3><p>Preț per 250 gr</p><p class="price">70.00 Lei</p></div></div>
-        <div class="menu-card"><img src="images/cascavalbrie.jpg" alt="Cașcaval Brie"><div class="menu-card-content"><h3>Cașcaval Brie</h3><p>Preț per 100 gr</p><p class="price">58.00 Lei</p></div></div>
-      </div>
-    </section>
-
-    <!-- ================= ALTE PRODUSE ITALIENE ================= -->
-    <section id="alte-produse" class="menu-section">
-      <h2>Alte produse italiene</h2>
-      <div class="menu-grid">
-        <div class="menu-card"><div class="menu-card-content"><h3>Trufe negre</h3><p>30 gr</p><p class="price">285 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Carpaccio din trufe</h3><p>80 gr</p><p class="price">465 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cremă de trufe negre</h3><p>180 gr</p><p class="price">445 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Carciofi alla Romana</h3><p>340 gr</p><p class="price">216 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Sos paste Alfredo cu trufe</h3><p>340 gr</p><p class="price">210 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Hamsii în ulei extravirgin</h3><p>95 gr</p><p class="price">155 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Ton Nostromo</h3><p>3x70 gr</p><p class="price">130 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Ton San Marco</h3><p>3x70 gr</p><p class="price">115 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Gogoșari umpluți cu ton</h3><p>190 gr</p><p class="price">189 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cremă de oțet balsamic</h3><p>250 ml</p><p class="price">145 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cremă de oțet balsamic</h3><p>500 ml</p><p class="price">235 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Spray oțet balsamic</h3><p>250 ml</p><p class="price">125 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Spray Olio Extra Vergine Di Oliva</h3><p>250 ml</p><p class="price">195 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Spray ulei Extra Vergine cu rozmarin</h3><p>250 ml</p><p class="price">195 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Spray ulei Extra Vergine cu Trufe</h3><p>250 ml</p><p class="price">265 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Ulei Extra Virgin di Oliva</h3><p>1 L</p><p class="price">249 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Ulei Extra Virgin di Oliva</h3><p>0.5 L</p><p class="price">155 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Ulei sansa și măsline</h3><p>1 L</p><p class="price">165 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Ulei sansa și măsline</h3><p>0.5 L</p><p class="price">99 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pesto Genovese</h3><p>180 gr</p><p class="price">155 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Pesto Genovese</h3><p>500 gr</p><p class="price">380 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cremă de măsline negre</h3><p>500 gr</p><p class="price">300 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cremă de măsline verzi</h3><p>500 gr</p><p class="price">300 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Cremă de anghinare cu usturoi</h3><p>500 gr</p><p class="price">345 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Salsa de ardei iute Calabria</h3><p>90 gr</p><p class="price">125 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Sos de roșii</h3><p>690 gr</p><p class="price">59 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Roșii uscate în ulei</h3><p>270 gr</p><p class="price">125 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Lasagna Casa Rinaldi</h3><p>500 gr</p><p class="price">70 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Grissini cu usturoi</h3><p>125 gr</p><p class="price">39 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Grissini cu rozmarin</h3><p>125 gr</p><p class="price">39 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Grissini clasici</h3><p>125 gr</p><p class="price">39 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Taralli fenicul</h3><p>200 gr</p><p class="price">55 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Taralli ulei de măsline</h3><p>200 gr</p><p class="price">55 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Taralli usturoi și ardei iute</h3><p>200 gr</p><p class="price">55 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Paste Bronzo Tagliatelle</h3><p>500 gr</p><p class="price">53 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Paste Bronzo Farfale</h3><p>500 gr</p><p class="price">38 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Paste Bronzo Penne Rigate</h3><p>500 gr</p><p class="price">37 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Paste Bronzo Spaghetti</h3><p>500 gr</p><p class="price">37 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Paste CR Aroma de Crăciun</h3><p>500 gr</p><p class="price">83 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Paste CR Aroma Farfale</h3><p>500 gr</p><p class="price">113 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Sare de mare fino/grosso</h3><p>1 kg</p><p class="price">36 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Ore Liete Ricchi și Fibre</h3><p>250 gr</p><p class="price">63 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Ore Liete Fructe de Pădure</h3><p>240 gr</p><p class="price">56 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cuor di Fico</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Ferri di Cavallo</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cremoso al Pistacchio</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cuor di Amarena</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cioccorancia</h3><p>130 gr</p><p class="price">50 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Biscuiți Cremoso Limonatte</h3><p>140 gr</p><p class="price">50 Lei</p></div></div>
-        <div class="menu-card"><div class="menu-card-content"><h3>Savoiardi Biscuiți Tiramisu</h3><p>500 gr</p><p class="price">140 Lei</p></div></div>
-      </div>
-    </section>
+  <main class="container" id="main-content">
+    <div id="meniu-dinamic">
+      <noscript>
+        <section class="menu-section">
+          <h2>Meniul necesită JavaScript</h2>
+          <p>Pentru a vedea meniul complet activează JavaScript, sau sună-ne direct la
+          <a href="tel:+37378242489">+373 78242489</a>.</p>
+        </section>
+      </noscript>
+    </div>
 
     <!-- ================= LOCAȚIE ================= -->
-    <section id="locatie" class="menu-section">
+    <section id="locatie" class="menu-section static-section">
       <h2>Locație</h2>
       <p>Ne găsești în inima Hîncești-ului. Vezi mai jos harta cu locația exactă:</p>
       <div style="margin:12px 0;">
         <iframe
           title="Harta Panini da Arthuro"
           src="https://www.google.com/maps?q=Panini+da+Arthuro,+Hîncești,+Republica+Moldova&output=embed"
-          width="100%" height="320" style="border:0;border-radius:8px;" allowfullscreen="" loading="lazy"></iframe>
+          width="100%" height="320" style="border:0;border-radius:8px;" allowfullscreen="" loading="eager"></iframe>
       </div>
       <p><strong>Adresă:</strong> Strada Chișinăului 10, Hîncești, Republica Moldova</p>
       <p><a href="https://www.google.com/maps/search/?api=1&query=Panini+da+Arthuro+Hîncești" target="_blank" rel="noopener">Deschide în Google Maps</a></p>
     </section>
 
-    <!-- ================= DELIVERY =================
-    <section id="livrare" class="menu-section">
-      <h2>Livrare</h2>
-      <p>Comandă preferatele tale direct acasă!</p>
-      <p><strong>Zonă de livrare:</strong> Hîncești</p>
-      <p><strong>Taxă de livrare:</strong> 30 Lei (gratuit peste 300 Lei)</p>
-      <p><strong>Telefon pentru comenzi:</strong> +373 78242489</p>
-    </section> -->
-
     <!-- ================= CONTACT ================= -->
-    <section id="contact" class="menu-section">
+    <section id="contact" class="menu-section static-section">
       <h2>Contact și program</h2>
       <p><strong>Adresă:</strong> Strada Chișinăului 10, Hîncești, Republica Moldova</p>
       <p><strong>Telefon:</strong> +373 78242489</p>
-      <p><strong>Program:</strong> Luni, 08:00 – 15:30</p>
-      <p>Marți – Duminică, 08:00 – 22:00</p>
-      <a href="https://www.instagram.com/paninidaarthuro/" class="btn">Instagram</a>
-      <a href="https://www.facebook.com/profile.php?id=61575091597043" class="btn">Facebook</a>
-      <a href="https://www.tiktok.com/@panini.da.arthuro" class="btn">TikTok</a>
+      <p><strong>Program:</strong> Luni - Duminică, 08:00 – 22:30</p>
+      <a href="https://www.instagram.com/paninidaarthuro/" class="btn" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61575091597043" class="btn" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tiktok.com/@panini.da.arthuro" class="btn" target="_blank" rel="noopener">TikTok</a>
     </section>
 
-    <!-- ================= RECENZII SLIDER ================= -->
+    <!-- ================= RECENZII ================= -->
     <section id="recenzii" class="menu-section">
-      <h2>Ce spun clienții noștri</h2>
+      <h2>Ce spun oaspeții noștri</h2>
 
       <div class="reviews-slider-wrapper">
-        <button class="slider-btn prev" id="reviewPrev">&#8249;</button>
-        <button class="slider-btn next" id="reviewNext">&#8250;</button>
+        <button class="slider-btn prev" id="reviewPrev" aria-label="Recenzia anterioară">&#8249;</button>
+        <button class="slider-btn next" id="reviewNext" aria-label="Recenzia următoare">&#8250;</button>
 
         <div class="reviews-track" id="reviewsTrack">
 
-          <!-- Recenzie 1 -->
           <div class="review-slide">
             <div class="review-card-inner">
-              <div class="review-quote-icon">"</div>
+              <div class="review-quote-icon" aria-hidden="true">"</div>
               <p class="review-text">Great Italian panini recipe and cozy atmosphere. I liked the careful service and tasty fresh panini. You can enjoy a Julius Meinl coffee here that I highly recommend.</p>
               <div class="review-author">
-                <div class="review-avatar" style="background: #64014f;">A</div>
+                <div class="review-avatar" style="background:#64014f;">A</div>
                 <div class="review-author-info">
                   <div class="review-author-name">Ana Ț.</div>
                   <div class="review-stars">★★★★★</div>
@@ -343,13 +138,12 @@
             </div>
           </div>
 
-          <!-- Recenzie 2 -->
           <div class="review-slide">
             <div class="review-card-inner">
-              <div class="review-quote-icon">"</div>
+              <div class="review-quote-icon" aria-hidden="true">"</div>
               <p class="review-text">Personal amabil și foarte deschis, bucatele: ceva inedit ce te face să te mai întorci neapărat iar ambianta localului este relaxantă care este binevenită la finele unei zile încărcate !!!! Mulțumesc, revenim neapărat!!!</p>
               <div class="review-author">
-                <div class="review-avatar" style="background: #3f6e3d;">IP</div>
+                <div class="review-avatar" style="background:#3f6e3d;">IP</div>
                 <div class="review-author-info">
                   <div class="review-author-name">Iulia P.</div>
                   <div class="review-stars">★★★★★</div>
@@ -359,13 +153,12 @@
             </div>
           </div>
 
-          <!-- Recenzie 3 -->
           <div class="review-slide">
             <div class="review-card-inner">
-              <div class="review-quote-icon">"</div>
+              <div class="review-quote-icon" aria-hidden="true">"</div>
               <p class="review-text">Aici am băut cea mai bună cafea băută vreodată în Republica Moldova, super mulțumit, bravo!</p>
               <div class="review-author">
-                <div class="review-avatar" style="background: #1c286e;">GC</div>
+                <div class="review-avatar" style="background:#1c286e;">GC</div>
                 <div class="review-author-info">
                   <div class="review-author-name">Gabriel C.</div>
                   <div class="review-stars">★★★★★</div>
@@ -375,13 +168,12 @@
             </div>
           </div>
 
-          <!-- Recenzie 4 -->
           <div class="review-slide">
             <div class="review-card-inner">
-              <div class="review-quote-icon">"</div>
+              <div class="review-quote-icon" aria-hidden="true">"</div>
               <p class="review-text">Dacă dorești să savurezi o cafea bună într-un mediu plăcut, mergi la ei Ador această locație și serviciile oferite ❤️</p>
               <div class="review-author">
-                <div class="review-avatar" style="background: #8b1a1a;">DN</div>
+                <div class="review-avatar" style="background:#8b1a1a;">DN</div>
                 <div class="review-author-info">
                   <div class="review-author-name">Donos N.</div>
                   <div class="review-stars">★★★★★</div>
@@ -391,13 +183,12 @@
             </div>
           </div>
 
-          <!-- Recenzie 5 -->
           <div class="review-slide">
             <div class="review-card-inner">
-              <div class="review-quote-icon">"</div>
+              <div class="review-quote-icon" aria-hidden="true">"</div>
               <p class="review-text">Pizza - 5 stele | Tiramisu - 5 stele | Ideal 🤌 …</p>
               <div class="review-author">
-                <div class="review-avatar" style="background: #1a5276;">IV</div>
+                <div class="review-avatar" style="background:#1a5276;">IV</div>
                 <div class="review-author-info">
                   <div class="review-author-name">Ion V.</div>
                   <div class="review-stars">★★★★★</div>
@@ -407,45 +198,41 @@
             </div>
           </div>
 
+        </div>
 
-        </div><!-- end reviews-track -->
-
-        <!-- Bara de progres -->
         <div class="slider-progress-bar">
           <div class="slider-progress-fill" id="progressFill"></div>
         </div>
-
-        <!-- Dots -->
         <div class="slider-dots" id="sliderDots"></div>
       </div>
     </section>
 
     <!-- ================= FEEDBACK ================= -->
-    <section id="feedback" class="menu-section">
+    <section id="feedback" class="menu-section static-section">
       <h2>Trimite un feedback</h2>
       <p>Dacă ai sugestii pentru îmbunătățirea localului sau a meniului nostru, ne poți scrie direct:</p>
       <p><strong>Email:</strong> darhuro@gmail.com</p>
       <a href="mailto:darhuro@gmail.com?subject=Recenzie%20Panini%20da%20Arthuro&body=Bună%20ziua%2C%20aș%20dori%20să%20las%20o%20recenzie%3A" class="btn">✉️ Trimite feedback-ul tău</a>
     </section>
-
   </main>
 
-  <button id="scrollTopBtn" title="Înapoi sus">↑</button>
+  <button id="scrollTopBtn" title="Înapoi sus" aria-label="Înapoi sus">↑</button>
 
+  <script src="menu-data.js"></script>
   <script src="script.js"></script>
 
-  <footer style="background:#254b23;color:white;padding:15px;text-align:center;margin-top:20px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+  <footer>
+    <div class="container footer-inner">
       <div>© <strong>Panini da Arthuro</strong> — Designed by Antonin.</div>
-      <div><p>Designer site - balanantonin8@gmail.com</p></div>
+      <div>Designer site — balanantonin8@gmail.com</div>
     </div>
   </footer>
 
   <div class="mobile-actions">
-    <a href="tel:+37378242489" class="action-item"><span class="icon">📞</span> Sună</a>
-    <a href="https://wa.me/37378242489" target="_blank" class="action-item whatsapp"><span class="icon">💬</span> Chat</a>
-    <a href="#locatie" class="action-item"><span class="icon">📍</span> Hartă</a>
-    <a href="https://www.instagram.com/paninidaarthuro/" target="_blank" class="action-item"><span class="icon">📸</span> Insta</a>
+    <a href="tel:+37378242489" class="action-item"><span class="icon" aria-hidden="true">📞</span> Sună</a>
+    <a href="https://wa.me/37378242489" target="_blank" rel="noopener" class="action-item whatsapp"><span class="icon" aria-hidden="true">💬</span> Chat</a>
+    <a href="#locatie" class="action-item"><span class="icon" aria-hidden="true">📍</span> Hartă</a>
+    <a href="https://www.instagram.com/paninidaarthuro/" target="_blank" rel="noopener" class="action-item"><span class="icon" aria-hidden="true">📸</span> Insta</a>
   </div>
 
 </body>
